@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="Hexo个人博客,博客搭建," />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>hexo+Github搭建个人博客手记 [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      hexo+Github搭建个人博客手记
+    </h1>
+    
+    <time class="time" datetime="2017-11-17T11:44:45.000Z">
+      2017-11-17
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <p>Hexo是一个快速、简介、高效的静态博客框架，让多个页面在几秒内瞬间完成渲染。Hexo基于Node.js，支持Giithub，可以整合Octopress等大多数插件，并自己也拥有强大的插件系统.<br><a id="more"></a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p>Hexo是基于Node.js的，需要首先安装npm工具，这个工具是Node.js安装包的工具，所以我们要首先安装Node.js.<br>使用apt-get安装Node.js：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+<h4 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><ol>
+<li><p>Node和Git都安装好以后，在本地目录下建一个文件夹，如：MyBlog，进入该目录并安装Hexo.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化以后，执行init初始化命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成静态页面命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate（hexo g也可以）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地预览，进行文章预览调试，命令如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server（hexo s也可以）</span><br></pre></td></tr></table></figure>
+<p>浏览器输入  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>   即可。</p>
+</li>
+<li>一些常用命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  #查看帮助</span><br><span class="line">hexo version  </span><br><span class="line">Hexo如何让文章想只显示一部分和一个&quot;阅读全文&quot;的按钮:在文章中加 &lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Github设置"><a href="#Github设置" class="headerlink" title="Github设置"></a>Github设置</h2><ol>
+<li><p>github账号注册<br>Git是一种良好的、支持分支管理的代码管理方式，能很好地解决团队之间协作的问题。每个工程师在自己本地分支上开发，完成功能之后再将所有人的代码合并。<br>这个大家应该都有，没有的话就去注册一下吧！ Github地址：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> </p>
+</li>
+<li><p>创建Name仓库<br>建立与你用户名对应的仓库，仓库名必须为[your_user_name.github.io]，如图所示：<br><img src="/img/GitNewRepo.png" alt="image"></p>
+</li>
+<li><p>配置和使用github<br>如果用过Git的话，这一步就可以忽略了。没有用过的，下边可要认真看了。</p>
+<p>3.1 首先需要检查你电脑是否已经有SSH key，运行 git Bash 客户端，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
+<p>检查是否已经存在id_rsa.pub或id_dsa.pub文件，如果文件已存在，那么可以跳过步骤2，直接操作步骤3。</p>
+<p>3.2 创建一个SSH key，这里请注意：你需要把邮件地址换成你自己的邮件地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。</p>
+<p>以上代码省略了 -f 参数，因此，运行上面那条命令后会让你输入一个文件名，用于保存刚才生成的SSH key代码，以下会出现三次提示：<br>第一次提示，生成两个密钥，直接回车选择默认文件名（ id_rsa 和 id_rsa.pub ）；<br>接下来两次提示，输入密码和确认密码，是push文件时候的密码，当然也可不输入密码，直接回车。代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line"># Enter file in which to save the key (~/.ssh/id_rsa): [Press enter]</span><br><span class="line"></span><br><span class="line">Enter passphrase (empty for no passphrase): </span><br><span class="line"># Enter same passphrase again:</span><br></pre></td></tr></table></figure>
+<p>当你看到下面这段代码的时候，那就说明，你的SSH key已经创建成功，你只需要添加到github的SSH key上就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in ~/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in ~/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
+<p>3.3 添加你的 SSH key 到 github上面去.首先你需要拷贝 id_rsa.pub 文件的内容.也可直接使用命令行来复制:<br>Mac下：pbcopy &lt; ~/.ssh/id_rsa.pub<br>Windows下：clip &lt; ~/.ssh/id_rsa.pub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>登陆Github，<br>打开个人 Settings–&gt;SSH keys–&gt;Add SSH key，<br>Title 随便写，<br>Key 粘贴之前复制的内容，<br>这样 SSH key 就添加的 GitHub。</p>
+<p>3.4 检测SSH key是否可以访问Github，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>当你输入以上代码时，会有一段警告代码，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</span><br><span class="line"># RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line"># Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>这是正常的，你输入 yes 回车既可。如果你创建 SSH key 的时候设置了密码，接下来就会提示你输入密码，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase for key &apos;~/.ssh/id_rsa&apos;:</span><br></pre></td></tr></table></figure>
+<p>当然如果你密码输错了，会再要求你输入，直到对了为止。<br>注意：输入密码时如果输错一个字就会不正确，使用删除键是无法更正的。<br>密码正确后你会看到下面这段话，如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi sweetheartly! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>如果用户名是正确的,你已经成功设置SSH密钥。如果你看到 “access denied” ，者表示拒绝访问，那么你就需要使用 https 去访问，而不是 SSH 。</p>
+<p>3.5 设置Git全局用户配置，这一步不是很重要，但是如果与之前所有的git账户不一致，Github会要求必须声明的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;xxx&quot;</span><br><span class="line">$ git config --global user.email xxx@gmail.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><ol>
+<li><p>打开Hexo博客目录下的_config.yml，推荐使用VS code，尽量不要用记事本打开，可能会出现乱码（如果出现乱码，一定要用编辑器将文件编码格式改为：UTF-8）。repo: 找到自己对应的仓库，branch选择主分支.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:sweetheartly/sweetheartly.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过shell命令找到Hexo所在的目录（这里我的是：MyBlog），安装hexo-deployer-git部署所需要的插件，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除public目录下的缓存文件，文件生成后立即部署网站,部署之前预先生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在浏览器输入<a href="https://sweetheartly.github.io/">https://sweetheartly.github.io/</a>, sweetheartly是个人github的名字，如图所示：<br><img src="/img/GitPreview.png" alt="image"></p>
+</li>
+</ol>
+<p>好了，到这里就结束了。如果你有什么疑问或指正，请留言。</p>
+<p>参考文档： <a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">https://www.liaoxuefeng.com</a>        =&gt; Git教程<br>参考文档： <a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="noopener">http://blog.csdn.net/binyao02123202/article/details/20130891</a><br>参考文档：<a href="http://www.jianshu.com/p/21234432c94e" target="_blank" rel="noopener">http://www.jianshu.com/p/21234432c94e</a></p>
+
+  </div>
+  <div class="post-tags">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo个人博客/">Hexo个人博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客搭建/">博客搭建</a></li></ul>
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+          <span>〈 </span>
+          <a href="/2017/11/17/DeployCompleted/" rel="next" title="博客重新部署总结">
+          博客重新部署总结
+          </a>
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+          <a href="/2017/11/23/小猪佩奇/" rel="prev" title="小猪佩奇">
+            小猪佩奇
+          </a>
+          <span>〉</span>
+        
+      </div>
+    </div>
+  
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Node-js"><span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装npm"><span class="toc-text">安装npm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用npm安装Hexo"><span class="toc-text">使用npm安装Hexo</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建博客"><span class="toc-text">创建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github设置"><span class="toc-text">Github设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-text">部署</span></a></li></ol>
+  </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="https://sweetheartly.github.io/" target="_blank">Sweetheartly-Home</a> |
+      <a href="https://github.com/sweetheartly/" target="_blank">Github</a> |
+      <a href="https://www.jianshu.com/u/dc339dd3e0fa" target="_blank">简书</a> |
+      <a href="http://weibo.com/Nepal20ly" target="_blank">Weibo</a> |
+      <a href="https://segmentfault.com/u/sweetheartly" target="_blank">Segmentfault</a> |
+      <a href="https://github.com/sweetheartly/hexo-themes" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>
