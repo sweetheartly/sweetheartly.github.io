@@ -3,11 +3,55 @@
   
     
     <entry>
+      <title>如何删除Github中已有文件</title>
+      <link href="/2018/07/17/%E5%A6%82%E4%BD%95%E5%9C%A8Github%E4%B8%AD%E5%88%A0%E9%99%A4%E5%B7%B2%E6%9C%89%E6%96%87%E4%BB%B6/"/>
+      <url>/2018/07/17/%E5%A6%82%E4%BD%95%E5%9C%A8Github%E4%B8%AD%E5%88%A0%E9%99%A4%E5%B7%B2%E6%9C%89%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<h3 id="一、通过删除已有仓库删除所有文件"><a href="#一、通过删除已有仓库删除所有文件" class="headerlink" title="一、通过删除已有仓库删除所有文件"></a>一、通过删除已有仓库删除所有文件</h3><p>删除已有的仓库很容易，找到我们需要删除的仓库，点击’Settings’仓库设置；<br><img src="../ArticleImg/Github部署/Github删除仓库-1.png" alt="image"><br>然后，在仓库设置最底部，找到’Danger Zone’危险区域；<br><img src="../ArticleImg/Github部署/Github删除仓库-2.png" alt="image"><br>点击’Delete this repository’，就可以删除该仓库了。</p><h3 id="二、同时删除Github本地库和远程仓库的文件"><a href="#二、同时删除Github本地库和远程仓库的文件" class="headerlink" title="二、同时删除Github本地库和远程仓库的文件"></a>二、同时删除Github本地库和远程仓库的文件</h3><p>Github不能直接删除文件或文件夹，但是可以通过删除命令行来解决。</p><h4 id="进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令："><a href="#进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令：" class="headerlink" title="进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令："></a>进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令：</h4><p><img src="../ArticleImg/Github部署/Github删除文件-本地库.png" alt="image"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add * </span><br><span class="line">$ git commit -m <span class="string">'delete file'</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p><p>再查看远程库，文件已经没有了。</p><h3 id="三、只删除远程仓库的文件，不删除本地仓库"><a href="#三、只删除远程仓库的文件，不删除本地仓库" class="headerlink" title="三、只删除远程仓库的文件，不删除本地仓库"></a>三、只删除远程仓库的文件，不删除本地仓库</h3><p>查看远程库需要删除的文件，接下来我们通过命令删除它。<br><img src="../ArticleImg/Github部署/Github删除文件-远程库.png" alt="image"></p><h4 id="执行以下命令："><a href="#执行以下命令：" class="headerlink" title="执行以下命令："></a>执行以下命令：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master  <span class="comment">// 将项目从远程库拉下来</span></span><br><span class="line">$ git rm -r --cached <span class="number">1.</span>txt  <span class="comment">// 删除指定文件，多个文件之间空格隔开</span></span><br><span class="line">$ git commit -m <span class="string">'删除1.txt'</span></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure><p>过程如图所示：<br><img src="../ArticleImg/Github部署/Github删除文件过程.png" alt="image"><br>再次查看远程库，文件已经没有了。<br><img src="../ArticleImg/Github部署/Github删除文件结果.png" alt="image"></p>]]></content>
+      
+      <categories>
+          
+          <category> Learning Tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>软件测试工程师发展体系图</title>
+      <link href="/2018/07/13/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%8F%91%E5%B1%95%E4%BD%93%E7%B3%BB%E5%9B%BE/"/>
+      <url>/2018/07/13/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%8F%91%E5%B1%95%E4%BD%93%E7%B3%BB%E5%9B%BE/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+        <tags>
+            
+            <tag> 软件测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>测试计划与测试方案的区别</title>
       <link href="/2018/07/13/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
       <url>/2018/07/13/%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      <content type="html"><![CDATA[<h3 id="一、测试计划与测试方案"><a href="#一、测试计划与测试方案" class="headerlink" title="一、测试计划与测试方案"></a>一、测试计划与测试方案</h3><p>  计划：属于组织管理层面的文档，从组织管理的角度对测试活动进行规划；</p><p>  方案：属于技术层面的文档，从技术的角度对测试活动进行规划。</p><p>  测试计划：对测试全过程的组织、资源、原则等进行规定和约束，并制定测试全过程各个阶段的任务分配以及时间进度安排，并提出对各项任务的评估，风险分析和管理需求。</p><p>  测试方案：  描述需要测试的特性，测试的方法，测试环境的规划，测试工具的设计和选择，测试用例的设计方法，测试代码的设计方案。<br>  测试方案需要在测试计划的指导下进行，测试计划提出“做什么”，而测试方案明确“如何做”。</p><p>  软件测试用例包括软件测试用例设计和写作。软件测试用例设计是从设计层面考虑，比如从功能性、可用性、安全性等方面考虑设计测试用例。<br>  软件测试用例写作是指软件测试用例的写作规范，包括写作格式、标识的命名规范等。 软件测试用例设计得出软件测试用例的内容，然后，按照软件测试写作方法，落实到文档中，两者是形式和内容的关系。 测试用例格式的八个基本项是：测试用例编号、测试项目、测试标题、重要级别、预置条件、输入、操作步骤、预期输出。</p><h3 id="二、什么是测试计划？"><a href="#二、什么是测试计划？" class="headerlink" title="二、什么是测试计划？"></a>二、什么是测试计划？</h3><p>  所谓测试计划是指描述了要进行的测试活动的范围、方法、资源和进度的文档。它主要包括测试项、被测特性、测试任务、谁执行任务和风险控制等。</p><h3 id="三、什么是测试方案？"><a href="#三、什么是测试方案？" class="headerlink" title="三、什么是测试方案？"></a>三、什么是测试方案？</h3><p>  所谓测试方案是指描述需要测试的特性、测试的方法、测试环境的规划、测试工具的设计和选择、测试用例的设计方法、测试代码的设计方案。</p><h3 id="四、测试计划与测试方案区别"><a href="#四、测试计划与测试方案区别" class="headerlink" title="四、测试计划与测试方案区别"></a>四、测试计划与测试方案区别</h3><table><thead><tr><th>序号</th><th style="text-align:center">角度</th><th style="text-align:right">测试计划</th><th style="text-align:right">测试方案</th></tr></thead><tbody><tr><td>1</td><td style="text-align:center">组织方式不同</td><td style="text-align:right">管理文件</td><td style="text-align:right">技术方案</td></tr><tr><td>2</td><td style="text-align:center">目的不同</td><td style="text-align:right">强调“做什么”</td><td style="text-align:right">强调怎么做</td></tr><tr><td>3</td><td style="text-align:center">具体要求不同</td><td style="text-align:right">组织架构、工作任务分配、工作量估计、人力物力资源分配、风险的估计和规避、各任务通过准则等</td><td style="text-align:right">测试需求的细化、测试组网图的设计、自动化测试框架的设计、测试数据和测试脚本的设计、测试用例设计的原则等</td></tr></tbody></table>]]></content>
+      <content type="html"><![CDATA[<h3 id="一、测试计划与测试方案"><a href="#一、测试计划与测试方案" class="headerlink" title="一、测试计划与测试方案"></a>一、测试计划与测试方案</h3><p>  计划：属于组织管理层面的文档，从组织管理的角度对测试活动进行规划；</p><p>  方案：属于技术层面的文档，从技术的角度对测试活动进行规划。</p><p>  测试计划：对测试全过程的组织、资源、原则等进行规定和约束，并制定测试全过程各个阶段的任务分配以及时间进度安排，并提出对各项任务的评估，风险分析和管理需求。</p><p>  测试方案：  描述需要测试的特性，测试的方法，测试环境的规划，测试工具的设计和选择，测试用例的设计方法，测试代码的设计方案。<br>  测试方案需要在测试计划的指导下进行，测试计划提出“做什么”，而测试方案明确“如何做”。</p><p>  软件测试用例包括软件测试用例设计和写作。软件测试用例设计是从设计层面考虑，比如从功能性、可用性、安全性等方面考虑设计测试用例。<br>  软件测试用例写作是指软件测试用例的写作规范，包括写作格式、标识的命名规范等。 软件测试用例设计得出软件测试用例的内容，然后，按照软件测试写作方法，落实到文档中，两者是形式和内容的关系。 测试用例格式的八个基本项是：测试用例编号、测试项目、测试标题、重要级别、预置条件、输入、操作步骤、预期输出。</p><h3 id="二、什么是测试计划？"><a href="#二、什么是测试计划？" class="headerlink" title="二、什么是测试计划？"></a>二、什么是测试计划？</h3><p>  所谓测试计划是指描述了要进行的测试活动的范围、方法、资源和进度的文档。它主要包括测试项、被测特性、测试任务、谁执行任务和风险控制等。</p><h3 id="三、什么是测试方案？"><a href="#三、什么是测试方案？" class="headerlink" title="三、什么是测试方案？"></a>三、什么是测试方案？</h3><p>  所谓测试方案是指描述需要测试的特性、测试的方法、测试环境的规划、测试工具的设计和选择、测试用例的设计方法、测试代码的设计方案。</p><h3 id="四、测试计划与测试方案区别"><a href="#四、测试计划与测试方案区别" class="headerlink" title="四、测试计划与测试方案区别"></a>四、测试计划与测试方案区别</h3><table><thead><tr><th style="text-align:center">序号</th><th style="text-align:center">角度</th><th style="text-align:center">测试计划</th><th style="text-align:center">测试方案</th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">组织方式不同</td><td style="text-align:center">管理文件</td><td style="text-align:center">技术方案</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">目的不同</td><td style="text-align:center">强调”做什么”</td><td style="text-align:center">强调”怎么做”</td></tr><tr><td style="text-align:center">3</td><td style="text-align:center">具体要求不同</td><td style="text-align:center">组织架构、工作任务分配、工作量估计、人力物力资源分配、风险的估计和规避、各任务通过准则等</td><td style="text-align:center">测试需求的细化、测试组网图的设计、自动化测试框架的设计、测试数据和测试脚本的设计、测试用例设计的原则等</td></tr></tbody></table>]]></content>
       
+      
+        <tags>
+            
+            <tag> 测试计划 </tag>
+            
+            <tag> 测试方案 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -35,9 +79,9 @@
       
         <tags>
             
-            <tag> 测试基础 </tag>
-            
             <tag> 测试理论知识 </tag>
+            
+            <tag> 测试基础 </tag>
             
         </tags>
       
@@ -74,24 +118,15 @@
     </entry>
     
     <entry>
-      <title>博客重新部署总结</title>
-      <link href="/2018/04/09/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2%E6%80%BB%E7%BB%93/"/>
-      <url>/2018/04/09/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>这是一篇2017.08.16开始的的文章~<br>那段时间我的博客上传出现问题了~<i class="fa fa-taxi"></i><br><a id="more"></a><br>断断续续的修改了几次，每次也没用心去做。后来换了Mac，又重新部署了一下，今天终于整理好了，心情十分的好～之前部署的时候没有太在意流程，重新部署下来还是花了不少时间，决定把这个部署流程重新记录一下。</p><p>剩下的时间总结一下近期的学习，会上传到博客上的。</p><h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><h2 id="你好-1"><a href="#你好-1" class="headerlink" title="你好"></a>你好</h2><h4 id="你好-2"><a href="#你好-2" class="headerlink" title="你好"></a>你好</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哈哈哈</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-    </entry>
-    
-    <entry>
       <title>Github部署</title>
       <link href="/2017/12/17/Github%E9%83%A8%E7%BD%B2/"/>
       <url>/2017/12/17/Github%E9%83%A8%E7%BD%B2/</url>
-      <content type="html"><![CDATA[<h3 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>1、初始化本地仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p><p>2、连接远程仓库：<br>如果是第一次使用git，在使用git的时候会提示输入用户名和密码，用户名是自己的注册邮箱。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/sweetheartly/sweetheartly.github.io.git</span><br></pre></td></tr></table></figure></p><p>3、发布hexo到github page。清空、刷新、部署三个命令，可以一起执行。如果部署时不clean，可能之前修改的文章还存在。包括一些配置等，有时候部署完成后并没有改变，其实是缓存未清除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p><p>4、添加文件到本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add</span><br></pre></td></tr></table></figure></p><p>5、提交声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &apos;内容&apos;</span><br></pre></td></tr></table></figure></p><p>6、推送到远程仓库（github）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p><p>这里建议创建一个新的分支hexo，用于管理hexo文件。提交的的时候只提交hexo网站html、css、等源文件。而默认的master用来部署更新项目,具体可以看我的github地址分支情况 <a href="https://github.com/sweetheartly/sweetheartly.github.io" target="_blank" rel="noopener">https://github.com/sweetheartly/sweetheartly.github.io</a><br>创建并切换到新建分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexo</span><br></pre></td></tr></table></figure></p><p>将分支推送到远程仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure></p><p>这时打开网站 <a href="https://sweetheartly.github.io">https://sweetheartly.github.io</a> 就能看到效果了。</p><p>记得提交以后去github上把hexo分支设置默认，以后写文章等都要部署。<br>文章在hexo目录下的\source_posts文件夹中，是Markdown格式。</p><h3 id="进阶-绑定域名"><a href="#进阶-绑定域名" class="headerlink" title="进阶-绑定域名"></a>进阶-绑定域名</h3><p>域名可以自行去阿里云，景安等网站购买。一般都有系统提示步骤。<br>拿到域名之后，进行解析，推荐使用dnspod免费解析。<br>具体使用方法：<br>1、注册登录dnspod之后，添加域名，然后解析，添加两条记录<br>2、登录你注册域名网站的管理后台，修改DNS解析地址为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1g1ns1.dnspod.net</span><br><span class="line">f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p><p>3、登录github，找到项目，设置setting，找到GitHub Pages<br>4、在master分支下的CNAME.MD文件写入注册的域名<br>再次访问差不多就好了，如果延迟的话，可能解析立马不会生效。需要等会儿才能看到。</p>]]></content>
+      <content type="html"><![CDATA[<h3 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>1、初始化本地仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p><p>2、连接远程仓库：<br>如果是第一次使用git，在使用git的时候会提示输入用户名和密码，用户名是自己的注册邮箱。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://github.com/sweetheartly/sweetheartly.github.io.git</span><br></pre></td></tr></table></figure></p><p>3、发布hexo到github page。清空、刷新、部署三个命令，可以一起执行。如果部署时不clean，可能之前修改的文章还存在。包括一些配置等，有时候部署完成后并没有改变，其实是缓存未清除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p><p>4、添加文件到本地仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add</span><br></pre></td></tr></table></figure></p><p>5、提交声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;内容&apos;</span><br></pre></td></tr></table></figure></p><p>6、推送到远程仓库（github）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></p><p>这里建议创建一个新的分支hexo，用于管理hexo文件。提交的的时候只提交hexo网站html、css、等源文件。而默认的master用来部署更新项目,具体可以看我的github地址分支情况 <a href="https://github.com/sweetheartly/sweetheartly.github.io" target="_blank" rel="noopener">https://github.com/sweetheartly/sweetheartly.github.io</a><br>创建并切换到新建分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hexo</span><br></pre></td></tr></table></figure></p><p>将分支推送到远程仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin hexo</span><br></pre></td></tr></table></figure></p><p>这时打开网站 <a href="https://sweetheartly.github.io">https://sweetheartly.github.io</a> 就能看到效果了。</p><p>记得提交以后去github上把hexo分支设置默认，以后写文章等都要部署。<br>文章在hexo目录下的\source_posts文件夹中，是Markdown格式。</p><h3 id="进阶-绑定域名"><a href="#进阶-绑定域名" class="headerlink" title="进阶-绑定域名"></a>进阶-绑定域名</h3><p>域名可以自行去阿里云，景安等网站购买。一般都有系统提示步骤。<br>拿到域名之后，进行解析，推荐使用dnspod免费解析。<br>具体使用方法：<br>1、注册登录dnspod之后，添加域名，然后解析，添加两条记录<br>2、登录你注册域名网站的管理后台，修改DNS解析地址为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ f1g1ns1.dnspod.net</span><br><span class="line">$ f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p><p>3、登录github，找到项目，设置setting，找到GitHub Pages<br>4、在master分支下的CNAME.MD文件写入注册的域名<br>再次访问差不多就好了，如果延迟的话，可能解析立马不会生效。需要等会儿才能看到。</p>]]></content>
       
       
         <tags>
             
-            <tag> Github部署 </tag>
+            <tag> Github </tag>
             
         </tags>
       
@@ -173,25 +208,16 @@
     
     <entry>
       <title>博客重新部署总结</title>
-      <link href="/2017/11/17/DeployCompleted/"/>
-      <url>/2017/11/17/DeployCompleted/</url>
-      <content type="html"><![CDATA[<p>这是一篇2017.08.16开始的的文章~ <i class="fa fa-yelp"></i><br>那段时间我的博客上传出现问题了~</p><p>断断续续的修改了几次，每次也没用心去做。<a id="more"></a>后来换了Mac，又重新部署了一下，今天终于整理好了，心情十分的好～之前部署的时候没有太在意流程，重新部署下来还是花了不少时间，决定把这个部署流程重新记录一下。</p><p>剩下的时间总结一下近期的学习，会上传到博客上的。</p>]]></content>
+      <link href="/2017/11/17/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2/"/>
+      <url>/2017/11/17/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2/</url>
+      <content type="html"><![CDATA[<p>这是一篇2017.08.16开始的的文章~ <i class="fa fa-yelp"></i><br>那段时间我的博客上传出现问题了~</p><p>断断续续的修改了几次，每次也没用心去做。<a id="more"></a>后来换了Mac，重新部署了一下，换了个新主题，心情十分的好～之前部署的时候没有太在意流程，重新部署下来还是花了不少时间，决定把这个部署流程重新记录一下。</p><p>剩下的时间总结一下近期的学习，继续努力。</p>]]></content>
       
       
         <tags>
             
-            <tag> 个人博客部署总结 </tag>
+            <tag> 博客部署 </tag>
             
         </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>happy</title>
-      <link href="/2017/07/23/happy/"/>
-      <url>/2017/07/23/happy/</url>
-      <content type="html"><![CDATA[<p>我很随便的写了一篇文章。</p><p>真的，就是这么随便！</p>]]></content>
-      
       
     </entry>
     
@@ -211,6 +237,27 @@
         <tags>
             
             <tag> vue文件中html代码自动补全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>测试之旅</title>
+      <link href="/2017/07/19/%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%97%85/"/>
+      <url>/2017/07/19/%E6%B5%8B%E8%AF%95%E4%B9%8B%E6%97%85/</url>
+      <content type="html"><![CDATA[<p>这是我随便写的一篇文章。</p><p>近期的我在学习软件测试，以后的目标是做一名测试开发工程师，此刻的你在做什么呢？</p><p><img src="/img/smiles.jpg" alt="image"></p>]]></content>
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
             
         </tags>
       
@@ -238,30 +285,9 @@
     </entry>
     
     <entry>
-      <title>测试1</title>
-      <link href="/2017/07/19/Test/"/>
-      <url>/2017/07/19/Test/</url>
-      <content type="html"><![CDATA[<p>这是我用来测试的一篇文章。</p><p>你看见了吗？</p><p><img src="/img/smiles.jpg" alt="image"></p>]]></content>
-      
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试1 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>摔跤吧,爸爸</title>
-      <link href="/2017/07/18/WrestlingSence/"/>
-      <url>/2017/07/18/WrestlingSence/</url>
+      <link href="/2017/07/18/%E3%80%8A%E6%91%94%E8%B7%A4%E5%90%A7,%E7%88%B8%E7%88%B8%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+      <url>/2017/07/18/%E3%80%8A%E6%91%94%E8%B7%A4%E5%90%A7,%E7%88%B8%E7%88%B8%E3%80%8B%E8%A7%82%E5%90%8E%E6%84%9F/</url>
       <content type="html"><![CDATA[<p>时间：2017.07.18   PM 1:30<br>地点：科院 0#906<br>人员：三月小组在校生 </p><p>今天看了一部电影——“摔跤吧 爸爸”，听到这个名字，首先我觉得肯定是个男孩，因为只有男孩才会喜欢摔跤吧！女孩子一般不会这么粗鲁的。<br><a id="more"></a></p><p>故事就这么开始了。首先映入演练的是个拿过摔跤冠军的父亲，他有一个很远大的理想，代表印度拿下世界摔跤冠军。这个愿望一直没能实现，后来就寄希望于自己的孩子能够替他完成梦想。偶然发现了他的女儿有摔跤的潜质后，他就开始逼迫他的两个女儿进行训练。努力让他的女儿成为世界级冠军。在这个男权主导的社会环境下，吉他两姐妹练习摔跤成为了全村人的笑柄，受到了同学们的冷嘲热讽，最终突破自我拿下了世界冠军的故事。</p><p>奖牌不会长在树上。这部影片很励志，剧中每每透漏着坚持与不易。成功不是白白得来的，奖牌也不会长在树上，和天上不会掉馅饼一样，只有努力拼搏，拥有矢志不移的意志和顽强的意志力才有所成就。为了让他们变得更加强壮，父亲不顾母亲的反驳，坚持让她们吃鸡肉；长发干扰了训练，不顾吉塔的反驳，父亲毅然剪掉了她们的长发。吉塔的成功离不开训练和父亲的严格要求，我们想要成功亦是如此。当你羡慕别人站在舞台上光彩夺目的时候，你可曾想过，他每天早上5点就起床开始锻炼身体，当你在梦中的时候，别人就已经完成了今天的计划。每个人的成功，都与他付出的汗水成正比。</p><p>做事首先要客服心理障碍。当吉塔第一次参加摔跤比赛的时候，场上有几个不同类型的对手供他挑战，然而她选择了最强的一个。要想战胜别人，首先要战胜自己内心的恐惧。他选择了强者，证明她对自己也有信心，敢于去挑战强者，虽然比赛输了，也在比赛中找到了自己的不足。在比赛的关键时刻，吉塔回想小时候父亲强迫她们跳入冰冷的湖水中，父亲则在岸上说，记住，不是每一次我都能赶过来帮助你，要相信你自己。这一次的突破不仅仅是拿到了国家级金牌，更战胜了自我，突破了人生的额新征程。换做我们自己，做事的时候，总是想走捷径，尽快达到目的，因为未知的恐惧却忽略的这路途中锻炼，磕磕绊绊未免是不好的，些许在这途中就有意想不到的收获呢。</p><p>有个良师是非常重要的。吉塔的成功，一大部分是来自于这个冠军的父亲的正确指导。幼年的时候，吉塔的父亲就发现了吉塔具备很好的摔跤潜质，加之正确的指导，慢慢让吉塔也爱上了摔跤运动。国家比赛中，吉塔用教练的方法连连失败，因为教练没有从吉塔自身的优势去引导，而她的父亲更加了解吉塔，明白吉塔的优势是攻击，比赛时发挥她的优势，进入了决赛。决赛时，他又分析了对手的优势，交给吉塔正确的方法去应对。放在中国这个开放的社会中，父母总觉得孩子好好学习就对了，却忽略了孩子身上原有的潜能。</p><p>不忘初心，放得始终。获得第一枚国家金牌以后，吉塔进入了国家训练馆开始了新的训练。训练馆设备好，新事物多，很快吉塔就在这些花花世界迷失了自我。所幸她及时醒悟，恢复了过来。仔细分析了自己的错误与不足，迎来了最终的胜利。这让我们明白了胜利也不要骄傲，骄傲必定失败。</p><p>人生在于选择，逆境永远是相对存在的。选择怎样的人生，决定权永远在自己的手中，是不是拥有坚定不移的信念，朝着自己决定的方向一如既往的努力前行，这条道路势必不会都是坦途，历经风雨的洗礼，终有一天会在自己选择的道路终点实现自己的人生价值。</p><p><span style="float: right;">2017年7月18日</span></p>]]></content>
       
       <categories>
