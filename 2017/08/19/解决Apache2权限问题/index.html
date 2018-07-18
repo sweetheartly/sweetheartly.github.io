@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="" />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>Mac解决Apache2目录权限问题 [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      Mac解决Apache2目录权限问题
+    </h1>
+    
+    <time class="time" datetime="2017-08-19T12:31:20.000Z">
+      2017-08-19
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <p>为apache配置虚拟主机，在httpd-vhosts.conf文件中进行简单设置，启动apache进行访问，却出现了You don’t have permission to access / on this server的提示，原因是我的虚拟主机目录为非apache安装目录下的 .htaccess，所以违反了apache对默认对网站根访问权限。如下所示：<br><a id="more"></a><br><img src="/ArticleImg/11-29mac权限/localhost权限.png" alt="image"></p>
+<p>apache的默认虚拟主机根目录地址为/Library/WebServer/Documents/ , 方法如下：</p>
+<ol>
+<li>更改 Apache 默认网站根目录需更改 DocumentRoot、Directory .</li>
+<li>还要记得改一下权限，将 httpd.conf 中的 AllowOverride none，Require all granted ，全部都改成 AllowOverride All，Require all granted ..</li>
+<li>Options指令可以在Apache服务器核心配置(server config)、虚拟主机配置(virtual host)、特定目录配置(directory)以及.htaccess文件中使用。Options指令的主要作用是控制特定目录将启用哪些服务器特性。<br>Options FollowSymLinks为禁止Apache显示该目录结构，以上问题可以通过下边两种方式来解决：<br> 第一，添加Indexes： Options Indexes FollowSymLinks<br> 第二，将其注释，改为： Options All<br> 注意：在Indexes前，加 + 代表允许目录浏览；加 – 代表禁止目录浏览</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride All</span><br><span class="line">    <span class="keyword">Require</span> all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">DocumentRoot <span class="string">"/Users/UserName/Documents/object"</span></span><br><span class="line">&lt;Directory <span class="string">"/Users/UserName/Documents/object"</span>&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Options FollowSymLinks Multiviews</span></span><br><span class="line">    <span class="comment"># MultiviewsMatch Any</span></span><br><span class="line">    Options All</span><br><span class="line">    </span><br><span class="line">    AllowOverride All</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Controls who can get stuff from this server.</span></span><br><span class="line">    <span class="keyword">Require</span> all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>重启Apache： sudo apachectl restart , 在浏览器输入对应地址即可.</p>
+
+  </div>
+  <div class="post-tags">
+        
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+          <span>〈 </span>
+          <a href="/2017/07/21/VS Code使用Emmet解决html代码自动补全/" rel="next" title="VS Code使用Emmet解决html代码自动补全">
+          VS Code使用Emmet解决html代码自动补全
+          </a>
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+          <a href="/2017/08/29/Mac为Apache2配置虚拟主机/" rel="prev" title="Mac为Apache2配置虚拟主机">
+            Mac为Apache2配置虚拟主机
+          </a>
+          <span>〉</span>
+        
+      </div>
+    </div>
+  
+
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="https://sweetheartly.github.io/" target="_blank">Sweetheartly-Home</a> |
+      <a href="https://github.com/sweetheartly/" target="_blank">Github</a> |
+      <a href="https://www.jianshu.com/u/dc339dd3e0fa" target="_blank">简书</a> |
+      <a href="http://weibo.com/Nepal20ly" target="_blank">Weibo</a> |
+      <a href="https://segmentfault.com/u/sweetheartly" target="_blank">Segmentfault</a> |
+      <a href="https://github.com/sweetheartly/hexo-themes" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>
