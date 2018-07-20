@@ -67,10 +67,11 @@
     <p>在做个人博客的时候，用到了 Session，对这个神奇的标识符产生了一定的好奇心。</p>
 <p>每次我们访问一个页面，如果有开启 Session，也就是有 Session_start() 时，就会自动生成一个 Session_id 来标注是这次会话的唯一ID，同时也会自动往 Cookie 里写入一个名字为 PHPSESSID 的变量，它的值正是 Session_id，当这次会话没结束，再次访问的时候，服务器会去读取这个PHPSESSID的 Cookie 是否有值有没过期，如果能够读取到，则继续用这个Session_id，如果没有，就会新生成一个 Session_id，同时生成 PHPSESSID 这个 Cookie。由于默认生成的这个 PHPSESSID Cookie是会话，也就是说关闭浏览器就会过期掉，所以，下次重新浏览时，会重新生成一个 Session_id。</p>
 <p>这个 Session_id，就用来标识绑定一个用户的，既然Session_id 生成了。那么当我们往 Session 里面写入数据，是如何保存的，答案是保存在服务器的临时目录里，根据 php.ini 的配置，我机子上的这个 Session 是存在 D:\wamp\tmp 目录里的。我们先说是存在这个目录下，然后待会将如何修改。</p>
+<p>未带待续……</p>
 
   </div>
   <div class="post-tags">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/archives/tags/Session和Cookie/">Session和Cookie</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Session和Cookie/">Session和Cookie</a></li></ul>
   </div>
 </article>
   
@@ -78,7 +79,7 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/archives/2017/03/01/17.3.1hello-world/" rel="next" title="Hexo new article">
+          <a href="/2017/03/01/17.3.1hello-world/" rel="next" title="Hexo new article">
           Hexo new article
           </a>
         
@@ -86,7 +87,7 @@
   
       <div class="post-nav-item post-nav-prev">
         
-          <a href="/archives/2017/07/18/17.7.18《摔跤吧,爸爸》观后感/" rel="prev" title="摔跤吧,爸爸">
+          <a href="/2017/07/18/17.7.18《摔跤吧,爸爸》观后感/" rel="prev" title="摔跤吧,爸爸">
             摔跤吧,爸爸
           </a>
           <span>〉</span>
