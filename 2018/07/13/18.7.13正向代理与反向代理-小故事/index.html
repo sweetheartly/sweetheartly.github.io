@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   
-    <meta name="keywords" content="Github," />
+    <meta name="keywords" content="收藏文章,正向代理与反向代理," />
   
 
   
@@ -18,7 +18,7 @@
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>Hexo+Github部署流程 [ Sweetheartly ]</title>
+  <title>正向代理与反向代理-小故事 [ Sweetheartly ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -54,33 +54,31 @@
       <article class="post" id="post">
   <header class="post-header text-center">
     <h1 class="title">
-      Hexo+Github部署流程
+      正向代理与反向代理-小故事
     </h1>
     
-    <time class="time" datetime="2017-12-17T02:13:07.000Z">
-      2017-12-17
+    <time class="time" datetime="2018-07-13T11:53:20.000Z">
+      2018-07-13
     </time>
     
     <hr>
   </header>
   <div class="post-content">
-    <h3 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>1、初始化本地仓库：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p>
-<p>2、连接远程仓库：<br>如果是第一次使用git，在使用git的时候会提示输入用户名和密码，用户名是自己的注册邮箱。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https:<span class="comment">//github.com/sweetheartly/sweetheartly.github.io.git</span></span><br></pre></td></tr></table></figure></p>
-<p>3、发布hexo到github page。清空、刷新、部署三个命令，可以一起执行。如果部署时不clean，可能之前修改的文章还存在。包括一些配置等，有时候部署完成后并没有改变，其实是缓存未清除。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
-<p>4、添加文件到本地仓库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add</span><br></pre></td></tr></table></figure></p>
-<p>5、提交声明<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'内容'</span></span><br></pre></td></tr></table></figure></p>
-<p>6、推送到远程仓库（github）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></p>
-<p>这里建议创建一个新的分支hexo，用于管理hexo文件。提交的的时候只提交hexo网站html、css、等源文件。而默认的master用来部署更新项目,具体可以看我的github地址分支情况 <a href="https://github.com/sweetheartly/sweetheartly.github.io" target="_blank" rel="noopener">https://github.com/sweetheartly/sweetheartly.github.io</a><br>创建并切换到新建分支：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hexo</span><br></pre></td></tr></table></figure></p>
-<p>将分支推送到远程仓库：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin hexo</span><br></pre></td></tr></table></figure></p>
-<p>这时打开网站 <a href="https://sweetheartly.github.io">https://sweetheartly.github.io</a> 就能看到效果了。</p>
-<p>记得提交以后去github上把hexo分支设置默认，以后写文章等都要部署。<br>文章在hexo目录下的\source_posts文件夹中，是Markdown格式。</p>
-<h3 id="进阶-绑定域名"><a href="#进阶-绑定域名" class="headerlink" title="进阶-绑定域名"></a>进阶-绑定域名</h3><p>域名可以自行去阿里云，景安等网站购买。一般都有系统提示步骤。<br>拿到域名之后，进行解析，推荐使用dnspod免费解析。<br>具体使用方法：<br>1、注册登录dnspod之后，添加域名，然后解析，添加两条记录<br>2、登录你注册域名网站的管理后台，修改DNS解析地址为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ f1g1ns1.dnspod.net</span><br><span class="line">$ f1g1ns2.dnspod.net</span><br></pre></td></tr></table></figure></p>
-<p>3、登录github，找到项目，设置setting，找到GitHub Pages<br>4、在master分支下的CNAME.MD文件写入注册的域名<br>再次访问差不多就好了，如果延迟的话，可能解析立马不会生效。需要等会儿才能看到。</p>
+    <p>&emsp;&emsp;代理，就是一个中间人。在项目中来看，用户是客户端，提供者是服务器端，代理就是在客户端和服务器端的”中间人”了。</p>
+<p>&emsp;&emsp;这有个比喻很形象的小故事，直观的展现出来了代理的作用，特此收藏。</p>
+<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>&emsp;&emsp;把整个流程比如成去饭店吃饭，我们也就是用户（客户端）去饭店吃饭（发送一个请求），你知道你要吃的是鱼香肉丝（请求），可是你不能自己做，那么就需要让大厨（服务端）给你做 ，可是去了饭店，大厨是在后台的，你也不能直接去告诉大厨，因为你没有权限（服务端在后台）这时候就需要服务员（代理）来帮忙告诉说某某某客户（客户端）要一盘鱼香肉丝（请求/访问资源）大厨（服务端）收到给做好然后交给服务员（代理）服务员拿到鱼香肉丝（资源/响应）给客户（用户端）送回来。</p>
+<p>&emsp;&emsp;好，简单的流程结束。这样大家明白代理的作用了吧。</p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>&emsp;&emsp;继续比喻，说我们（客户端）今天要在你饭店吃一个大闸蟹（请求），服务员（代理）收到这个请求发现大厨做不了这个大闸蟹，可是又需要挣钱，这怎么办呢？服务员这么一想，隔壁那家饭店可以做，而我也和那家大厨（另一个服务端）有交集，那我去让另一家大厨给做怎么样？好。于是服务员就去告诉另一家大厨说你帮我做一个大闸蟹（请求）吧，隔壁大厨说好呀，可以。就做好交给服务员。那么这个时候，这个服务员（反向代理）就成为了反向代理，因为他去调用别的服务端。这个时候我们（客户端）通常来说是没必要知道这大闸蟹怎么来的，只要有就好。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>&emsp;&emsp;那这个服务员是谁都可以当的吗？肯定不可以呀，所以这个服务员（代理）需要在饭店任职（配置）之后才可以。也就是代理需要配置。</p>
+<p>&emsp;&emsp;那么反向代理需要吗？答案是不需要的，自己思考就会明白。</p>
+<p>&emsp;&emsp;那么反向代理的优点就体现出来了，我不需要配置，而且我不仅只能在一家调用请求，我可以向多个服务端去发出请求。而且反向代理还可以向多台后端服务器进行负载平衡。</p>
+<blockquote>
+<p>原文链接：<a href="https://blog.csdn.net/zhanghanboke/article/details/77488894" target="_blank" rel="noopener">yit辛巴-正向代理与反向代理通俗理解</a></p>
+</blockquote>
 
   </div>
   <div class="post-tags">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/收藏文章/">收藏文章</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正向代理与反向代理/">正向代理与反向代理</a></li></ul>
   </div>
 </article>
   
@@ -88,16 +86,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2017/12/07/如何在Github中删除已有文件/" rel="next" title="如何删除Github中已有文件">
-          如何删除Github中已有文件
+          <a href="/2018/07/09/18.7.9如何修复键盘注册表/" rel="next" title="键盘无响应-如何修复键盘注册表">
+          键盘无响应-如何修复键盘注册表
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
         
-          <a href="/2018/03/18/Markdown基本语法总结/" rel="prev" title="Markdown基本语法总结">
-            Markdown基本语法总结
+          <a href="/2018/07/19/18.7.19租房记事/" rel="prev" title="北京租房记事">
+            北京租房记事
           </a>
           <span>〉</span>
         
@@ -108,7 +106,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装部署"><span class="toc-text">安装部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进阶-绑定域名"><span class="toc-text">进阶-绑定域名</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#正向代理"><span class="toc-text">正向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理"><span class="toc-text">反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意："><span class="toc-text">注意：</span></a></li></ol>
   </div>
 
 

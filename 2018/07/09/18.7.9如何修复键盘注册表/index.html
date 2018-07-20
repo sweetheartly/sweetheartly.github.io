@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="工具,键盘失灵," />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>键盘无响应-如何修复键盘注册表 [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      键盘无响应-如何修复键盘注册表
+    </h1>
+    
+    <time class="time" datetime="2018-07-09T03:31:29.000Z">
+      2018-07-09
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <h3 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h3><p>&emsp;&emsp;在安装软件的时候，部分软件需要电脑的注册表信息，当你不小心把权限点成了”否”的时候，你会神奇的发现：键盘不能用了，鼠标音箱一切正常，软键盘也可以用，但是键盘、外连键盘都用不了了。</p>
+<p>&emsp;&emsp;尝试了几种方法，都没有解决。无奈之下，求助百度。恶补了一下注册表知识。<br>&emsp;&emsp;Microsoft 在 Windows 中引入了注册表（英文为REGISTRY）的概念（实际上原来在 Windows NT 中已有此概念）。<strong>注册表是 Windows 95及 Windows 98 的核心数据库，表中存放着各种参数，直接控制着 Windows 的启动、硬件驱动程序的装载以及一些 Windows 应用程序运行的正常与否。</strong>如果该注册表由于鞭种原因受到了破坏，轻者使 Windows 的启动过程出现异常，重者可能会导致整个 Windows 系统的完全瘫痪。因此正确地认识、修改、及时地备份以及有问题时恢复注册表，对 Windows 用户来说就显得非常重要了。</p>
+<h3 id="2-如何打开注册表？（在修复注册表前请备份）"><a href="#2-如何打开注册表？（在修复注册表前请备份）" class="headerlink" title="2. 如何打开注册表？（在修复注册表前请备份）"></a>2. 如何打开注册表？（在修复注册表前请备份）</h3><h4 id="emsp-emsp-点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。"><a href="#emsp-emsp-点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。" class="headerlink" title="&emsp;&emsp;点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。"></a>&emsp;&emsp;点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。</h4><p><img src="/ArticleImg/工具/电脑注册表信息.png" alt=""></p>
+<h3 id="3-方法一：用相同系统电脑注册表导入修复"><a href="#3-方法一：用相同系统电脑注册表导入修复" class="headerlink" title="3. 方法一：用相同系统电脑注册表导入修复."></a>3. 方法一：用相同系统电脑注册表导入修复.</h3><blockquote>
+<p>1、USB 键盘：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdhi<br>2、PS/2键盘：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt</p>
+</blockquote>
+<h3 id="4-方法二《万能方法》：根据使用的键盘类型选择相应注册表导入-复制以下代码到记事本-保存为-reg-格式文件，双击导入修复。"><a href="#4-方法二《万能方法》：根据使用的键盘类型选择相应注册表导入-复制以下代码到记事本-保存为-reg-格式文件，双击导入修复。" class="headerlink" title="4. 方法二《万能方法》：根据使用的键盘类型选择相应注册表导入.复制以下代码到记事本,保存为 .reg 格式文件，双击导入修复。"></a>4. 方法二《万能方法》：根据使用的键盘类型选择相应注册表导入.复制以下代码到记事本,保存为 .reg 格式文件，双击导入修复。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\&#123;<span class="number">4</span>D36E96B-E325<span class="number">-11</span>CE-BFC1<span class="number">-08002</span>BE10318&#125;]</span><br><span class="line"><span class="string">"Class"</span>=<span class="string">"Keyboard"</span></span><br><span class="line"><span class="string">"ClassDesc"</span>=<span class="string">"@%SystemRoot%\\System32\\SysClass.Dll,-3002"</span></span><br><span class="line">@=<span class="string">"Keyboards"</span></span><br><span class="line"><span class="string">"Installer32"</span>=<span class="string">"SysClass.Dll,KeyboardClassInstaller"</span></span><br><span class="line"><span class="string">"IconPath"</span>=hex(<span class="number">7</span>):<span class="number">25</span>,<span class="number">00</span>,<span class="number">53</span>,<span class="number">00</span>,<span class="number">79</span>,<span class="number">00</span>,<span class="number">73</span>,<span class="number">00</span>,<span class="number">74</span>,<span class="number">00</span>,<span class="number">65</span>,<span class="number">00</span>,<span class="number">6</span>d,<span class="number">00</span>,<span class="number">52</span>,<span class="number">00</span>,<span class="number">6</span>f,<span class="number">00</span>,<span class="number">6</span>f,<span class="number">00</span>,\</span><br><span class="line">  <span class="number">74</span>,<span class="number">00</span>,<span class="number">25</span>,<span class="number">00</span>,<span class="number">5</span>c,<span class="number">00</span>,<span class="number">53</span>,<span class="number">00</span>,<span class="number">79</span>,<span class="number">00</span>,<span class="number">73</span>,<span class="number">00</span>,<span class="number">74</span>,<span class="number">00</span>,<span class="number">65</span>,<span class="number">00</span>,<span class="number">6</span>d,<span class="number">00</span>,<span class="number">33</span>,<span class="number">00</span>,<span class="number">32</span>,<span class="number">00</span>,<span class="number">5</span>c,<span class="number">00</span>,<span class="number">73</span>,\</span><br><span class="line">  <span class="number">00</span>,<span class="number">65</span>,<span class="number">00</span>,<span class="number">74</span>,<span class="number">00</span>,<span class="number">75</span>,<span class="number">00</span>,<span class="number">70</span>,<span class="number">00</span>,<span class="number">61</span>,<span class="number">00</span>,<span class="number">70</span>,<span class="number">00</span>,<span class="number">69</span>,<span class="number">00</span>,<span class="number">2</span>e,<span class="number">00</span>,<span class="number">64</span>,<span class="number">00</span>,<span class="number">6</span>c,<span class="number">00</span>,<span class="number">6</span>c,<span class="number">00</span>,<span class="number">2</span>c,<span class="number">00</span>,\</span><br><span class="line">  <span class="number">2</span>d,<span class="number">00</span>,<span class="number">33</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span></span><br><span class="line"><span class="string">"UpperFilters"</span>=hex(<span class="number">7</span>):<span class="number">6</span>b,<span class="number">00</span>,<span class="number">62</span>,<span class="number">00</span>,<span class="number">64</span>,<span class="number">00</span>,<span class="number">63</span>,<span class="number">00</span>,<span class="number">6</span>c,<span class="number">00</span>,<span class="number">61</span>,<span class="number">00</span>,<span class="number">73</span>,<span class="number">00</span>,<span class="number">73</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>,\</span><br><span class="line">  <span class="number">00</span></span><br><span class="line"><span class="string">"NoInstallClass"</span>=<span class="string">"1"</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\&#123;<span class="number">4</span>D36E96B-E325<span class="number">-11</span>CE-BFC1<span class="number">-08002</span>BE10318&#125;\<span class="number">0000</span>]</span><br><span class="line"><span class="string">"LocationInformationOverride"</span>=<span class="string">"插入键盘端口"</span></span><br><span class="line"><span class="string">"InfPath"</span>=<span class="string">"keyboard.inf"</span></span><br><span class="line"><span class="string">"InfSection"</span>=<span class="string">"STANDARD_Inst"</span></span><br><span class="line"><span class="string">"ProviderName"</span>=<span class="string">"Microsoft"</span></span><br><span class="line"><span class="string">"DriverDateData"</span>=hex:<span class="number">00</span>,<span class="number">80</span>,<span class="number">8</span>c,a3,c5,<span class="number">94</span>,c6,<span class="number">01</span></span><br><span class="line"><span class="string">"DriverDate"</span>=<span class="string">"6-21-2006"</span></span><br><span class="line"><span class="string">"DriverVersion"</span>=<span class="string">"6.0.6002.18005"</span></span><br><span class="line"><span class="string">"MatchingDeviceId"</span>=<span class="string">"*pnp0303"</span></span><br><span class="line"><span class="string">"DriverDesc"</span>=<span class="string">"PS/2 标准键盘"</span></span><br></pre></td></tr></table></figure>
+<p>此时，再次查看，键盘已经恢复正常了。</p>
+<h3 id="5-注册表六大根键的作用"><a href="#5-注册表六大根键的作用" class="headerlink" title="5. 注册表六大根键的作用"></a>5. 注册表六大根键的作用</h3><h4 id="emsp-emsp-在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。"><a href="#emsp-emsp-在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。" class="headerlink" title="&emsp;&emsp;在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。"></a>&emsp;&emsp;在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。</h4><ol>
+<li><p>HKEY_USERS<br>该根键保存了存放在本地计算机口令列表中的用户标识和密码列表。每个用户的预配置信息都存储在 HKEY_USERS 根键中。 HKEY_USERS 是远程计算机中访问的根键之一。</p>
+</li>
+<li><p>HKEY_CURRENT_USER<br>该根键包含本地工作站中存放的当前登录的用户信息,包括用户登录用户名和暂存的密码(注：此密码在输入时是隐藏的)。用户登录 Windows 98 时，其信息从 HKEY_USERS 中相应的项拷贝到 HKEY_CURRENT_USER 中。</p>
+</li>
+<li><p>HKEY_CURRENT_CONFIG<br>该根键存放着定义当前用户桌面配置(如显示器等)的数据,最后使用的文档列表（MRU）和其他有关当前用户的 Windows 98 中文版的安装的信息。</p>
+</li>
+<li><p>HKEY_CLASSES_ROOT<br>根据在 Windows 98 中文版中安装的应用程序的扩展名,该根键指明其文件类型的名称。在第一次安装 Windows 98 中文版时,RTF(Rich Text format)文件与写字板(WordPad)联系起来,但在以后安装了中文 Word 6.0 后，双击一个RTF文件时，将自动激活 Word 。存放在 SYSTEM.DAT 中的 HKEY_CLASSES_ROOT ，将替代 WIN.INI 文件中的[Extensions]小节中的设置项,它把应用程序与文件扩展名联系起来,它也替代了 Windows 3.x中的 Reg.dat 文件中的相似的设置项。</p>
+</li>
+<li><p>HKEY_LOCAL_MACHINE<br>该根键存放本地计算机硬件数据,此根键下的子关键字包括在 SYSTEM.DAT 中,用来提供 HKEY_LOCAL_MACHINE 所需的信息,或者在远程计算机中可访问的一组键中。该根键中的许多子键与 System.ini 文件中设置项类似。</p>
+</li>
+<li><p>HKEY_DYN_DATA<br>该根键存放了系统在运行时动态数据，此数据在每次显示时都是变化的，因此，此根键下的信息没有放在注册表中。</p>
+</li>
+</ol>
+<h3 id="6-注册表重要内容"><a href="#6-注册表重要内容" class="headerlink" title="6. 注册表重要内容"></a>6. 注册表重要内容</h3><h4 id="emsp-emsp-注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。"><a href="#emsp-emsp-注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。" class="headerlink" title="&emsp;&emsp;注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。"></a>&emsp;&emsp;注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。</h4><p><em>&emsp;&emsp;注：注册表不可随意更改，操作前请谨慎。</em></p>
+<p>(一) HKEY_CLASS_ROOT</p>
+<ol>
+<li>HKEY_CLASS_ROOT/Paint.Pricture/DefaultIcon双击窗口右侧的默认字符串，在打开的对话框中删除原来的“键值”，输入%1。重新启动后，在“我的电脑”中打开Windows目录，选择“大图标”，然后你看到的Bmp文件的图标再也不是千篇一律的MSPAINT图标了，而是每个Bmp文件的略图（前提是未安装ACDSee等看图软件）。</li>
+</ol>
+<p>(二) HKEY_CURRENT_USER</p>
+<ol>
+<li>HKEY_CURRENT_USER\Control Panel\Desktop 中新建串值名MenuShowDelay=0 可使“开始”菜单中子菜单的弹出速度提高。</li>
+<li>在HKEY_CURRENT_USER\Control Panel\Deskt-op\WindowsMeterics中新建串值名MinAnimate，值为1启动动画效果开关窗口，值为0取消动画效果。</li>
+</ol>
+<p>(三) HKEY_LOCAL_MACHINE</p>
+<ol>
+<li>HKEY_LOCAL_MACHINE\software\microsoft\windows\currentVersion\explorer\user shell folders 保存个人文件夹、收藏夹的路径。</li>
+<li>HKEY_LOCAL_MACHINE\system\currentControl-Set\control\keyboard Layouts 保存键盘使用的语言以及各种中文输入法。</li>
+<li>HKEY_LOCAL_MACHINE\software\microsoft\windows\currentVersion\uninstall 保存已安装的 Windows 应用程序卸载信息。</li>
+<li>HKEY_LOCAL_MACHINE\system\CurrentControl-Set\services\class 保存控制面板-增添硬件设备-设备类型目录。</li>
+<li>HKEY_LOCAL_MACHINE\system\Current-ControlSet\control\update 设置刷新方式。值为00设置为自动刷新，01设置为手工刷新[在资源管理器中按F5]。</li>
+<li>HKEY_LOCAL_MACHINE\software\microsoft\win-dows\currentVersion\run 保存由控制面板设定的计算机启动时运行程序的名称，其图标显示在任务条右边。在“启动”文件夹程序运行时图标也在任务条右边。</li>
+<li>HKEY_LOCAL_MACHINE\software\microsoft\windows\currentVersion\Policies\Ratings 保存IE4.0中文版“安全”\“分级审查”中设置的口令(数据加密),若遗忘了口令,删除 Ratings 中的数据即可解决问题。</li>
+<li>HKEY_LOCAL_MACHINE\software\microsoft\windows\currentVersion\explorer\desktop\nameSpace 保存桌面中特殊的图标,如回收站、收件箱、MS Network 等。</li>
+</ol>
+<p>(四) HKEY_USERS</p>
+<ol>
+<li>HKEY_USERS.Default\software\microsoft\internet explorer\typeURLs 保存IE4.0浏览器地址栏中输入的URL地址列表信息。清除文档菜单时将被清空。</li>
+<li>HKEY_USERS.Default\so..\mi..\wi..\current-Version\ex..\menuOrder\startMenu 保留程序菜单排序信息。</li>
+<li>HKEY_USERS.Default\so..\microsoft\windows\current-Version\explorer\RunMRU 保存“开始 \ 运行…”中运行的程序列表信息。清除文档菜单时将被清空。</li>
+<li>HKEY_USERS.Default\so..\microsoft\windows\current-Version\explorer\RecentDocs 保存最近使用的十五个文档的快捷方式(删除掉可解决文档名称重复的毛病)，清除文档菜单时将被清空。</li>
+<li>HKEY_USERS.default\software\microsoft\windows\currentVersion\applets 保存 Windows 应用程序的记录数据。</li>
+<li>HKEY_USERS.default\software\microsoft\windows\currentVersion\run 保存由用户设定的计算机启动时运行程序的名称，其图标显示在任务条右侧。</li>
+</ol>
+
+  </div>
+  <div class="post-tags">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/键盘失灵/">键盘失灵</a></li></ul>
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+          <span>〈 </span>
+          <a href="/2018/06/04/18.6.4软件测试流程/" rel="next" title="软件测试流程">
+          软件测试流程
+          </a>
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+          <a href="/2018/07/13/18.7.13正向代理与反向代理-小故事/" rel="prev" title="正向代理与反向代理-小故事">
+            正向代理与反向代理-小故事
+          </a>
+          <span>〉</span>
+        
+      </div>
+    </div>
+  
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-问题描述"><span class="toc-text">1. 问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-如何打开注册表？（在修复注册表前请备份）"><span class="toc-text">2. 如何打开注册表？（在修复注册表前请备份）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#emsp-emsp-点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。"><span class="toc-text">  点”开始”→运行→输入”regedit”→确定，打开注册表编辑器。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-方法一：用相同系统电脑注册表导入修复"><span class="toc-text">3. 方法一：用相同系统电脑注册表导入修复.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-方法二《万能方法》：根据使用的键盘类型选择相应注册表导入-复制以下代码到记事本-保存为-reg-格式文件，双击导入修复。"><span class="toc-text">4. 方法二《万能方法》：根据使用的键盘类型选择相应注册表导入.复制以下代码到记事本,保存为 .reg 格式文件，双击导入修复。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-注册表六大根键的作用"><span class="toc-text">5. 注册表六大根键的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#emsp-emsp-在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。"><span class="toc-text">  在注册表中，所有的数据都是通过一种树状结构以键和子键的方式组织起来，十分类似于目录结构。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-注册表重要内容"><span class="toc-text">6. 注册表重要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#emsp-emsp-注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。"><span class="toc-text">  注册表是一个大型数据库Registry。要详细地分析该数据库，不是一两页就能介绍完。我曾经用了半年多时间分析此数据库结构。下面只介绍部分重要内容。</span></a></li></ol></li></ol>
+  </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="https://sweetheartly.github.io/" target="_blank">Sweetheartly-Home</a> |
+      <a href="https://github.com/sweetheartly/" target="_blank">Github</a> |
+      <a href="https://www.jianshu.com/u/dc339dd3e0fa" target="_blank">简书</a> |
+      <a href="http://weibo.com/Nepal20ly" target="_blank">Weibo</a> |
+      <a href="https://segmentfault.com/u/sweetheartly" target="_blank">Segmentfault</a> |
+      <a href="https://github.com/sweetheartly/hexo-themes" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>

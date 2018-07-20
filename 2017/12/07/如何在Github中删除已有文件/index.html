@@ -65,8 +65,7 @@
   </header>
   <div class="post-content">
     <h3 id="一、通过删除已有仓库删除所有文件"><a href="#一、通过删除已有仓库删除所有文件" class="headerlink" title="一、通过删除已有仓库删除所有文件"></a>一、通过删除已有仓库删除所有文件</h3><p>删除已有的仓库很容易，找到我们需要删除的仓库，点击’Settings’仓库设置；<br><img src="/ArticleImg/Github部署/Github删除仓库-1.png" alt="image"><br>然后，在仓库设置最底部，找到’Danger Zone’危险区域；<br><img src="/ArticleImg/Github部署/Github删除仓库-2.png" alt="image"><br>点击’Delete this repository’，就可以删除该仓库了。</p>
-<h3 id="二、同时删除Github本地库和远程仓库的文件"><a href="#二、同时删除Github本地库和远程仓库的文件" class="headerlink" title="二、同时删除Github本地库和远程仓库的文件"></a>二、同时删除Github本地库和远程仓库的文件</h3><p>Github不能直接删除文件或文件夹，但是可以通过删除命令行来解决。</p>
-<h4 id="进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令："><a href="#进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令：" class="headerlink" title="进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令："></a>进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令：</h4><p><img src="/ArticleImg/Github部署/Github删除文件-本地库.png" alt="image"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add * </span><br><span class="line">$ git commit -m <span class="string">'delete file'</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、同时删除Github本地库和远程仓库的文件"><a href="#二、同时删除Github本地库和远程仓库的文件" class="headerlink" title="二、同时删除Github本地库和远程仓库的文件"></a>二、同时删除Github本地库和远程仓库的文件</h3><h4 id="进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令："><a href="#进入本地文件夹中相应的文件夹，删除需要删除的文件-文件夹，执行以下命令：" class="headerlink" title="进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令："></a>进入本地文件夹中相应的文件夹，删除需要删除的文件/文件夹，执行以下命令：</h4><p><img src="/ArticleImg/Github部署/Github删除文件-本地库.png" alt="image"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add * </span><br><span class="line">$ git commit -m <span class="string">'delete file'</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
 <p>再查看远程库，文件已经没有了。</p>
 <h3 id="三、只删除远程仓库的文件，不删除本地仓库"><a href="#三、只删除远程仓库的文件，不删除本地仓库" class="headerlink" title="三、只删除远程仓库的文件，不删除本地仓库"></a>三、只删除远程仓库的文件，不删除本地仓库</h3><p>查看远程库需要删除的文件，接下来我们通过命令删除它。<br><img src="/ArticleImg/Github部署/Github删除文件-远程库.png" alt="image"></p>
 <h4 id="执行以下命令："><a href="#执行以下命令：" class="headerlink" title="执行以下命令："></a>执行以下命令：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master  <span class="comment">// 将项目从远程库拉下来</span></span><br><span class="line">$ git rm -r --cached <span class="number">1.</span>txt  <span class="comment">// 删除指定文件，多个文件之间空格隔开</span></span><br><span class="line">$ git commit -m <span class="string">'删除1.txt'</span></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
@@ -90,8 +89,8 @@
   
       <div class="post-nav-item post-nav-prev">
         
-          <a href="/2017/12/17/Github部署/" rel="prev" title="Hexo+Github部署流程">
-            Hexo+Github部署流程
+          <a href="/2017/12/17/如何在Github上部署Hexo个人博客/" rel="prev" title="如何在Github上部署Hexo个人博客">
+            如何在Github上部署Hexo个人博客
           </a>
           <span>〉</span>
         
