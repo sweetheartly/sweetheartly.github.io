@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="PHP," />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>PHP函数笔记 [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      PHP函数笔记
+    </h1>
+    
+    <time class="time" datetime="2016-07-22T07:58:27.000Z">
+      2016-07-22
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <h3 id="一、PHP中几个输入函数-echo-print-print-r-printf-sprintf-var-dump-的区别。"><a href="#一、PHP中几个输入函数-echo-print-print-r-printf-sprintf-var-dump-的区别。" class="headerlink" title="一、PHP中几个输入函数 echo, print(), print_r(), printf(), sprintf(), var_dump() 的区别。"></a>一、PHP中几个输入函数 echo, print(), print_r(), printf(), sprintf(), var_dump() 的区别。</h3><ol>
+<li>echo: 是语句不是函数，没有返回值，可输出多个变量值，不需要圆括号。不能输出数组和对象，只能打印简单类型（如 int,string ）;</li>
+<li>print: 是语句不是函数, 有返回值1，只能输出一个变量， 不一定需要圆括号，不能输出数组和对象，只能打印简单类型（如 int,string ）;</li>
+<li>print_r():是函数， 可打印复合类型 （如 string, int, float, array, object 等）输出 array 时会用结构表示，而且可通过 print_r($str,true) 来使 print_r() 不输出而返回print_r处理后的值;</li>
+<li>printf():是函数 把文字格式化后输出，参考C语言</li>
+<li>sprintf()： 是函数，跟 printf() 相似，但不打印，而是返回格式化的文字（该函数把格式化的字符串写入一个变量,而不是输出出来）其他的与 printf 一样;</li>
+<li>var_dump():是函数，输出变量的内容、类型或字符串的内容、类型、长度。</li>
+</ol>
+<h3 id="二、禁用-cookie-的-session-的使用方案，设置-session-过期的方法、对应函数"><a href="#二、禁用-cookie-的-session-的使用方案，设置-session-过期的方法、对应函数" class="headerlink" title="二、禁用 cookie 的 session 的使用方案，设置 session 过期的方法、对应函数:"></a>二、禁用 cookie 的 session 的使用方案，设置 session 过期的方法、对应函数:</h3><ol>
+<li>通过url传值，把session id附加到url上（缺点：整个站点中不能有纯静态页面，因为纯静态页面session id 将无法继续传递到下一个页面）;</li>
+<li>通过隐藏表单，把session id放到表单的隐藏文本框中同表单一块提交过去（缺点：不适用’a’标签这种直接跳转的非表单的情况）;</li>
+<li>直接配置php.ini文件， 将php.ini文件里的session.use.trans.sid = 0 设为 1;</li>
+<li>用文件、数据库等形式保存session ID，在跨页过程中手动调用;<ol>
+<li>setCookie(session_name(),session_id(),time()+60,”/“);</li>
+<li>session_set_cookie_params(60);(把session存入cookie中);</li>
+</ol>
+</li>
+</ol>
+<p>注意：php.ini 中的session.gc_probability / session.gc_divisor</p>
+<h3 id="三、PHP获取文件内容的方法，对应的函数"><a href="#三、PHP获取文件内容的方法，对应的函数" class="headerlink" title="三、PHP获取文件内容的方法，对应的函数"></a>三、PHP获取文件内容的方法，对应的函数</h3><ol>
+<li>file_get_contents() 得到文件的内容（可以以 get 和 post 方法获取），整个文件读入一个字符串中;</li>
+<li>用 fopen() 打开url，以get 方式获取内容（借助 fgets()函数）;</li>
+<li>用 fsockopen 函数 打开url (可以以 get 和 post 方式获取)以 get 方式获取完整的数据包括 header 和 body;</li>
+<li>使用 curl 库获取内容，使用 curl 库之前，需查看 php.ini，查看是否已打开了curl扩展</li>
+</ol>
+<h3 id="四、isset-、empty-与is-null的区别"><a href="#四、isset-、empty-与is-null的区别" class="headerlink" title="四、isset() 、empty()与is_null的区别"></a>四、isset() 、empty()与is_null的区别</h3><ol>
+<li>当变量未定义时，is_null()和“参数本身”是不允许作为参数判断的，会报 Notice 警告错误；</li>
+<li>empty,isset首先都会检查变量是否存在，然后对变量值进行检测。而 is_null 和 “参数本身”只是直接检查变量值，是否为null，因此如果变量未定义就会出现错误！</li>
+<li>isset()：仅当 null 和未定义，返回 false；</li>
+<li>empty()：””、0、”0”、NULL、FALSE、array(),未定义，均返回 false；</li>
+<li>is_null()：仅判断是否为 null，未定义 报警告；</li>
+<li>变量本身作为参数，与 empty()一致，但接受未定义变量时，报警告；</li>
+</ol>
+<h3 id="五、strlen-与-mb-strlen-的作用与区别"><a href="#五、strlen-与-mb-strlen-的作用与区别" class="headerlink" title="五、strlen() 与 mb_strlen 的作用与区别"></a>五、strlen() 与 mb_strlen 的作用与区别</h3><p>&emsp;&emsp;在 PHP 中， strlen 与 mb_strlen 是求字符串长度的函数.<br>&emsp;&emsp;PHP 内置的字符串长度函数 strlen 无法正确处理中文字符串，它得到的只是字符串所占的字节数。对于GB2312的中文编码，strlen 得到的值是汉字个数的2倍，而对于UTF-8编码的中文，就是3倍（在 UTF-8 编码下，一个汉字占3个字节）。<br>&emsp;&emsp;采用mb_strlen函数可以较好地解决这个问题。mb_strlen 的用法和 strlen 类似，只不过它有第二个可选参数用于指定字符编码。例如得到UTF-8的字符串$str长度，可以用 mb_strlen($str,’UTF-8’)。如果省略第二个参数，则会使用PHP的内部编码。内部编码可以通过 mb_internal_encoding()函数得到。<br>&emsp;&emsp;需要注意的是，mb_strlen 并不是PHP核心函数，使用前需要确保在 php.ini 中加载了 php_mbstring.dll，即确保“extension=php_mbstring.dll”这一行存在并且没有被注释掉，否则会出现未定义函 数的问题。</p>
+<h3 id="六、PHP-如何获取客户端的IP地址"><a href="#六、PHP-如何获取客户端的IP地址" class="headerlink" title="六、PHP 如何获取客户端的IP地址"></a>六、PHP 如何获取客户端的IP地址</h3><p>&emsp;&emsp;通过全局数组来获得$_SERVER[‘REMOTE_ADDR’]；<br>&emsp;&emsp;通过环境变量来获得getenv(‘REMOTE_ADDR’)；<br>&emsp;&emsp;当客户机使用代理的时候获取不到真实的IP地址.</p>
+
+  </div>
+  <div class="post-tags">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/archives/tags/PHP/">PHP</a></li></ul>
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+          <a href="/archives/2016/08/04/16.8.4windows环境下，mysql的root密码丢失后重置方法/" rel="prev" title="windows环境下，mysql的root密码丢失后重置方法">
+            windows环境下，mysql的root密码丢失后重置方法
+          </a>
+          <span>〉</span>
+        
+      </div>
+    </div>
+  
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、PHP中几个输入函数-echo-print-print-r-printf-sprintf-var-dump-的区别。"><span class="toc-text">一、PHP中几个输入函数 echo, print(), print_r(), printf(), sprintf(), var_dump() 的区别。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、禁用-cookie-的-session-的使用方案，设置-session-过期的方法、对应函数"><span class="toc-text">二、禁用 cookie 的 session 的使用方案，设置 session 过期的方法、对应函数:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、PHP获取文件内容的方法，对应的函数"><span class="toc-text">三、PHP获取文件内容的方法，对应的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、isset-、empty-与is-null的区别"><span class="toc-text">四、isset() 、empty()与is_null的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、strlen-与-mb-strlen-的作用与区别"><span class="toc-text">五、strlen() 与 mb_strlen 的作用与区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、PHP-如何获取客户端的IP地址"><span class="toc-text">六、PHP 如何获取客户端的IP地址</span></a></li></ol>
+  </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="https://sweetheartly.github.io/" target="_blank">Sweetheartly-Home</a> |
+      <a href="https://github.com/sweetheartly/" target="_blank">Github</a> |
+      <a href="https://www.jianshu.com/u/dc339dd3e0fa" target="_blank">简书</a> |
+      <a href="http://weibo.com/Nepal20ly" target="_blank">Weibo</a> |
+      <a href="https://segmentfault.com/u/sweetheartly" target="_blank">Segmentfault</a> |
+      <a href="https://github.com/sweetheartly/hexo-themes" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="mysql," />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>windows环境下，mysql的root密码丢失后重置方法 [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      windows环境下，mysql的root密码丢失后重置方法
+    </h1>
+    
+    <time class="time" datetime="2016-08-04T08:02:17.000Z">
+      2016-08-04
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <h4 id="1、运行窗口输入-services-msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。"><a href="#1、运行窗口输入-services-msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。" class="headerlink" title="1、运行窗口输入 services.msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。"></a>1、运行窗口输入 services.msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
+<h4 id="2、打开cmd命令行，使用cd命令进入mysql-的bin目录，输入-mysql所在盘符切换当前目录。"><a href="#2、打开cmd命令行，使用cd命令进入mysql-的bin目录，输入-mysql所在盘符切换当前目录。" class="headerlink" title="2、打开cmd命令行，使用cd命令进入mysql 的bin目录，输入 mysql所在盘符切换当前目录。"></a>2、打开cmd命令行，使用cd命令进入mysql 的bin目录，输入 mysql所在盘符切换当前目录。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd  E:\TP\wamp\wamp\bin\mysql\mysql5<span class="number">.7</span><span class="number">.11</span>\bin  （此处是本地mysql/bin的存放位置）</span><br></pre></td></tr></table></figure>
+<h4 id="3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。"><a href="#3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。" class="headerlink" title="3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。"></a>3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --<span class="built_in">console</span> --skip-grant-tables</span><br></pre></td></tr></table></figure>
+<p>注意：该命令通过跳过权限安全检查，开启mysql服务，这样连接mysql时，可以不用输入用户密码。  此时已经开启了mysql服务了！</p>
+<h4 id="4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。"><a href="#4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。" class="headerlink" title="4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。"></a>4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">Enter password:</span><br></pre></td></tr></table></figure>
+<h4 id="5、使用SHOW命令查看数据库"><a href="#5、使用SHOW命令查看数据库" class="headerlink" title="5、使用SHOW命令查看数据库"></a>5、使用SHOW命令查看数据库</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW databases;</span><br></pre></td></tr></table></figure>
+<p>使用USE命令切换到mysql数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE mysql;</span><br></pre></td></tr></table></figure></p>
+<p>使用UPDATE命令更改root密码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE user SET Password=PASSWORD(<span class="string">'newpassword'</span>) WHERE user=<span class="string">'root'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>（mysql数据库中可能不存在password字段，造成密码修改失败。此时mysql表中的 authentication_string字段，即为password）<br>刷新权限（修改完必须刷新）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出，重新登录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure></p>
+<h4 id="6、运行"><a href="#6、运行" class="headerlink" title="6、运行"></a>6、运行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+<p>启动mysql服务，重新登录mysql：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
+<p>出现输入密码提示，输入新的密码即可登录：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter password: ***********</span><br></pre></td></tr></table></figure></p>
+<p>显示登录信息： 成功  一切ok!</p>
+
+  </div>
+  <div class="post-tags">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/archives/tags/mysql/">mysql</a></li></ul>
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+          <span>〈 </span>
+          <a href="/archives/2016/07/22/16.7.22PHP函数笔记/" rel="next" title="PHP函数笔记">
+          PHP函数笔记
+          </a>
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+          <a href="/archives/2016/08/09/16.8.9阶梯递归速算/" rel="prev" title="阶梯递归速算">
+            阶梯递归速算
+          </a>
+          <span>〉</span>
+        
+      </div>
+    </div>
+  
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、运行窗口输入-services-msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。"><span class="toc-text">1、运行窗口输入 services.msc，检查mysql服务是否启动，如果启动手动停止或输入以下命令，停止msyql服务。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、打开cmd命令行，使用cd命令进入mysql-的bin目录，输入-mysql所在盘符切换当前目录。"><span class="toc-text">2、打开cmd命令行，使用cd命令进入mysql 的bin目录，输入 mysql所在盘符切换当前目录。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。"><span class="toc-text">3、输入命令：这个窗口保留不关闭，然后新打开一个cmd命令窗口。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。"><span class="toc-text">4、输入命令：连接mysql；之后出现输入密码的提示，直接回车使用空密码即可成功连接。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、使用SHOW命令查看数据库"><span class="toc-text">5、使用SHOW命令查看数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、运行"><span class="toc-text">6、运行</span></a></li></ol>
+  </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="https://sweetheartly.github.io/" target="_blank">Sweetheartly-Home</a> |
+      <a href="https://github.com/sweetheartly/" target="_blank">Github</a> |
+      <a href="https://www.jianshu.com/u/dc339dd3e0fa" target="_blank">简书</a> |
+      <a href="http://weibo.com/Nepal20ly" target="_blank">Weibo</a> |
+      <a href="https://segmentfault.com/u/sweetheartly" target="_blank">Segmentfault</a> |
+      <a href="https://github.com/sweetheartly/hexo-themes" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>
