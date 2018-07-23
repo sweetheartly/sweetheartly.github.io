@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   
-    <meta name="keywords" content="Session和Cookie," />
+    <meta name="keywords" content="" />
   
 
   
@@ -18,7 +18,7 @@
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>Session和Cookie的学习 [ Sweetheartly ]</title>
+  <title>如何避免“短信被刷” [ Sweetheartly ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -54,24 +54,27 @@
       <article class="post" id="post">
   <header class="post-header text-center">
     <h1 class="title">
-      Session和Cookie的学习
+      如何避免“短信被刷”
     </h1>
     
-    <time class="time" datetime="2017-05-29T09:06:42.000Z">
-      2017-05-29
+    <time class="time" datetime="2017-06-02T07:31:14.000Z">
+      2017-06-02
     </time>
     
     <hr>
   </header>
   <div class="post-content">
-    <p>在做个人博客的时候，用到了 Session，对这个神奇的标识符产生了一定的好奇心。</p>
-<p>每次我们访问一个页面，如果有开启 Session，也就是有 Session_start() 时，就会自动生成一个 Session_id 来标注是这次会话的唯一ID，同时也会自动往 Cookie 里写入一个名字为 PHPSESSID 的变量，它的值正是 Session_id，当这次会话没结束，再次访问的时候，服务器会去读取这个PHPSESSID的 Cookie 是否有值有没过期，如果能够读取到，则继续用这个Session_id，如果没有，就会新生成一个 Session_id，同时生成 PHPSESSID 这个 Cookie。由于默认生成的这个 PHPSESSID Cookie是会话，也就是说关闭浏览器就会过期掉，所以，下次重新浏览时，会重新生成一个 Session_id。</p>
-<p>这个 Session_id，就用来标识绑定一个用户的，既然Session_id 生成了。那么当我们往 Session 里面写入数据，是如何保存的，答案是保存在服务器的临时目录里，根据 php.ini 的配置，我机子上的这个 Session 是存在 D:\wamp\tmp 目录里的。我们先说是存在这个目录下，然后待会将如何修改。</p>
-<p>未带待续……</p>
+    <h3 id="为什么要有验证码？"><a href="#为什么要有验证码？" class="headerlink" title="为什么要有验证码？"></a>为什么要有验证码？</h3><p>&emsp;&emsp;一开始构想捐款系统的时候，是站在用户的角度上来看的，首先自己人用，要方便、快捷，随时登录，一键捐款；但是牵扯到资金交易，安全是个很大的问题。</p>
+<p>&emsp;&emsp;现在快捷支付非常便捷，开发者总是要考虑到用户的财产安全，这既是为用户着想，也是为自己规避责任风险。支付的时候使用验证码在一定程度上加强了微信支付的安全性。</p>
+<p>&emsp;&emsp;支付的过程中，需要接收手机验证码。众所周知：1条短信验证码0.1元，看起来微不足道。假设：你一天支付了10次，那么就是1元钱；如果有一个程序不停的向你的手机发送验证码，那你的手机将面临欠费停机的风险。</p>
+<h3 id="如何有效的避免短信验证码被刷呢？"><a href="#如何有效的避免短信验证码被刷呢？" class="headerlink" title="如何有效的避免短信验证码被刷呢？"></a>如何有效的避免短信验证码被刷呢？</h3><h4 id="1-从系统前台进行限制"><a href="#1-从系统前台进行限制" class="headerlink" title="1. 从系统前台进行限制"></a>1. 从系统前台进行限制</h4><p>&emsp;&emsp;由于点击“获取验证码”就能直接获取验证码不安全，特在此处添加了一个小插件。这样用户在每次获取验证码的时候，就必须点击按钮进行验证，之后才能正常接收验证码。从而避免了某个自动执行的函数通过向手机发送验证码，导致手机被扣费的情况。</p>
+<h4 id="2-从后台数据库进行限制"><a href="#2-从后台数据库进行限制" class="headerlink" title="2. 从后台数据库进行限制"></a>2. 从后台数据库进行限制</h4><p>&emsp;&emsp;后来发现，依然还有短信被刷的情况。综合考虑，觉得只从前台限制还是不够，必须从根本上控制数量。于是，我在每次发送验证码的时候，获取了当前的时间戳函数，通过这个时间戳可以得到当天的日期，与该手机号一并存入数据库中，形成日志。</p>
+<p>&emsp;&emsp;这样，下次再发送验证码的时候，先筛选一下数据库，看看今天收到几条短信。超过我们规定的数量，就不允许该用户当天在发送验证码了。不管坏人在用什么样的办法，依旧还是躲不过我们后台的“检验”呢！</p>
+<p>&emsp;&emsp;也不知道这样的方法到底是不是够安全，如果你有更好的办法，希望可以讨教一下~</p>
 
   </div>
   <div class="post-tags">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Session和Cookie/">Session和Cookie</a></li></ul>
+        
   </div>
 </article>
   
@@ -79,16 +82,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2016/10/02/16.10.2计算小水坑的数量/" rel="next" title="计算小水坑的数量">
-          计算小水坑的数量
+          <a href="/2017/05/29/17.5.29Session和Cookie的学习/" rel="next" title="Session和Cookie的学习">
+          Session和Cookie的学习
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
         
-          <a href="/2017/06/02/17.6.2如何避免“短信被刷”/" rel="prev" title="如何避免“短信被刷”">
-            如何避免“短信被刷”
+          <a href="/2017/07/18/17.7.18《摔跤吧,爸爸》观后感/" rel="prev" title="摔跤吧,爸爸">
+            摔跤吧,爸爸
           </a>
           <span>〉</span>
         
@@ -96,6 +99,11 @@
     </div>
   
 
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有验证码？"><span class="toc-text">为什么要有验证码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何有效的避免短信验证码被刷呢？"><span class="toc-text">如何有效的避免短信验证码被刷呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-从系统前台进行限制"><span class="toc-text">1. 从系统前台进行限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-从后台数据库进行限制"><span class="toc-text">2. 从后台数据库进行限制</span></a></li></ol></li></ol>
+  </div>
 
 
 
