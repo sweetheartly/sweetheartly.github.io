@@ -18,7 +18,7 @@
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>如何避免“短信被刷” [ Sweetheartly ]</title>
+  <title>Tag: 短信验证码 [ Sweetheartly ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -33,10 +33,33 @@
   <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
   <ul class="pure-menu-list float-r clearfix">
     
-      <li class="pure-menu-item toc-menu">
-        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+      <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+        <a id="menu-main" class="pure-menu-link" href="javascript:;">
           <img class="menu-icon" src="/logo.png" alt="MENU">
         </a>
+        <ul class="pure-menu-children">
+        
+          
+            <li class="pure-menu-item"><a href="/" class="pure-menu-link">首页</a></li>
+            
+          
+          
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">归档</a></li>
+            
+          
+          
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">标签</a></li>
+            
+          
+          
+            <li class="pure-menu-item"><a href="/search" class="pure-menu-link">搜索</a></li>
+            
+          
+          
+            <li class="pure-menu-item"><a href="/about" class="pure-menu-link">关于</a></li>
+            
+          
+      </ul>
       </li>
     
   </ul>  
@@ -44,69 +67,38 @@
       <h1 class="title">Sweetheartly</h1>
       <!-- <span></span> -->
   </a>
-  <!-- 
-  <img class="logo" id="logo" src="/logo.png" alt="logo">
-   -->
+  <!--  -->
 </nav>
 
   <div class="container" id="content-outer">
     <div class="inner" id="content-inner">
-      <article class="post" id="post">
-  <header class="post-header text-center">
-    <h1 class="title">
-      如何避免“短信被刷”
-    </h1>
-    
-    <time class="time" datetime="2017-06-02T07:31:14.000Z">
-      2017-06-02
-    </time>
-    
-    <hr>
-  </header>
-  <div class="post-content">
-    <h3 id="为什么要有验证码？"><a href="#为什么要有验证码？" class="headerlink" title="为什么要有验证码？"></a>为什么要有验证码？</h3><p>&emsp;&emsp;一开始构想捐款系统的时候，是站在用户的角度上来看的，首先自己人用，要方便、快捷，随时登录，一键捐款；但是牵扯到资金交易，安全是个很大的问题。</p>
-<p>&emsp;&emsp;现在快捷支付非常便捷，开发者总是要考虑到用户的财产安全，这既是为用户着想，也是为自己规避责任风险。支付的时候使用验证码在一定程度上加强了微信支付的安全性。</p>
-<p>&emsp;&emsp;支付的过程中，需要接收手机验证码。众所周知：1条短信验证码0.1元，看起来微不足道。假设：你一天支付了10次，那么就是1元钱；如果有一个程序不停的向你的手机发送验证码，那你的手机将面临欠费停机的风险。</p>
-<h3 id="如何有效的避免短信验证码被刷呢？"><a href="#如何有效的避免短信验证码被刷呢？" class="headerlink" title="如何有效的避免短信验证码被刷呢？"></a>如何有效的避免短信验证码被刷呢？</h3><h4 id="1-从系统前台进行限制"><a href="#1-从系统前台进行限制" class="headerlink" title="1. 从系统前台进行限制"></a>1. 从系统前台进行限制</h4><p>&emsp;&emsp;由于点击“获取验证码”就能直接获取验证码不安全，特在此处添加了一个小插件。这样用户在每次获取验证码的时候，就必须点击按钮进行验证，之后才能正常接收验证码。从而避免了某个自动执行的函数通过向手机发送验证码，导致手机被扣费的情况。</p>
-<h4 id="2-从后台数据库进行限制"><a href="#2-从后台数据库进行限制" class="headerlink" title="2. 从后台数据库进行限制"></a>2. 从后台数据库进行限制</h4><p>&emsp;&emsp;后来发现，依然还有短信被刷的情况。综合考虑，觉得只从前台限制还是不够，必须从根本上控制数量。于是，我在每次发送验证码的时候，获取了当前的时间戳函数，通过这个时间戳可以得到当天的日期，与该手机号一并存入数据库中，形成日志。</p>
-<p>&emsp;&emsp;这样，下次再发送验证码的时候，先筛选一下数据库，看看今天收到几条短信。超过我们规定的数量，就不允许该用户当天在发送验证码了。不管坏人在用什么样的办法，依旧还是躲不过我们后台的“检验”呢！</p>
-<p>&emsp;&emsp;也不知道这样的方法到底是不是够安全，如果你有更好的办法，希望可以讨教一下~</p>
-
-  </div>
-  <div class="post-tags">
-        
-  </div>
-</article>
+      
+<div class="page tag-page" id="tag">
+  <h2>短信验证码</h2>
   
-    <div class="post-nav">
-      <div class="post-nav-item post-nav-next">
-        
-          <span>〈 </span>
-          <a href="/2017/05/29/17.5.29Session和Cookie的学习/" rel="next" title="Session和Cookie的学习">
-          Session和Cookie的学习
-          </a>
-        
-      </div>
-  
-      <div class="post-nav-item post-nav-prev">
-        
-          <a href="/2017/07/18/17.7.18《摔跤吧,爸爸》观后感/" rel="prev" title="摔跤吧,爸爸">
-            摔跤吧,爸爸
-          </a>
-          <span>〉</span>
-        
-      </div>
+    <div class="tag-item">
+      <time class="time" datetime="2018-07-23T13:15:02.000Z">
+        2018-07-23
+      </time>
+      
+        <a href="/2018/07/23/18.7.20如何防范短信接口被恶意调用（被刷）/">
+          如何防范短信接口被恶意调用（被刷）
+        </a>
+      
     </div>
   
-
-
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要有验证码？"><span class="toc-text">为什么要有验证码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何有效的避免短信验证码被刷呢？"><span class="toc-text">如何有效的避免短信验证码被刷呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-从系统前台进行限制"><span class="toc-text">1. 从系统前台进行限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-从后台数据库进行限制"><span class="toc-text">2. 从后台数据库进行限制</span></a></li></ol></li></ol>
-  </div>
-
-
-
+    <div class="tag-item">
+      <time class="time" datetime="2017-06-02T07:31:14.000Z">
+        2017-06-02
+      </time>
+      
+        <a href="/2017/06/02/17.6.2如何在项目中避免“短信被刷”/">
+          如何在项目中避免“短信被刷”
+        </a>
+      
+    </div>
+  
+</div>
     </div>
 
     

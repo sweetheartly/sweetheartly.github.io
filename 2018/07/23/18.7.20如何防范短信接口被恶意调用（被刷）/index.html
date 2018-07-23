@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#202020"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  
+    <meta name="keywords" content="PHP,短信验证码," />
+  
+
+  
+    <meta name="description" content="山有木兮木有枝  心悦君兮君不知❤" />
+  
+  
+  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <title>如何防范短信接口被恶意调用（被刷） [ Sweetheartly ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css">
+    
+      <link rel="stylesheet" href="/css/microb.css">
+    
+  
+</head>
+
+<body>
+  <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  <ul class="pure-menu-list float-r clearfix">
+    
+      <li class="pure-menu-item toc-menu">
+        <a id="menu-main-post" class="pure-menu-link" href="javascript:;">
+          <img class="menu-icon" src="/logo.png" alt="MENU">
+        </a>
+      </li>
+    
+  </ul>  
+  <a class="pure-menu-heading" href="/">
+      <h1 class="title">Sweetheartly</h1>
+      <!-- <span></span> -->
+  </a>
+  <!-- 
+  <img class="logo" id="logo" src="/logo.png" alt="logo">
+   -->
+</nav>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <article class="post" id="post">
+  <header class="post-header text-center">
+    <h1 class="title">
+      如何防范短信接口被恶意调用（被刷）
+    </h1>
+    
+    <time class="time" datetime="2018-07-23T13:15:02.000Z">
+      2018-07-23
+    </time>
+    
+    <hr>
+  </header>
+  <div class="post-content">
+    <blockquote>
+<p>鉴于之前遇到过短信接口被刷的问题，解决的不是很好。现发现一篇如此高质量博客，特此收藏分享~</p>
+</blockquote>
+<h2 id="一、什么是短信轰炸（短信接口被刷）"><a href="#一、什么是短信轰炸（短信接口被刷）" class="headerlink" title="一、什么是短信轰炸（短信接口被刷）"></a>一、什么是短信轰炸（短信接口被刷）</h2><p>&emsp;&emsp;短信轰炸一般基于 WEB 方式(基于客户端方式的原理与之类似)，由两个模块组成，包括:一个前端 Web 网页，提供输入被攻击者手机号码的表单；一个后台攻击页面(如 PHP)，利用从各个网站上找到的动态短信 URL 和 前端输入的被攻击者手机号码，发送 HTTP 请求，每次请求给用户发送一个动态短信。</p>
+<ul>
+<li>被攻击者大量接收非自身请求的短信，造成无法正常使用移动运营商业务。</li>
+<li>短信接口被刷通常指的就网站的动态短信发送接口被此类短信轰炸工具收集，作为其中一个发送途径。</li>
+</ul>
+<p>&emsp;&emsp;具体<em>工作原理</em>如下：</p>
+<ol>
+<li>恶意攻击者在前端页面中输入被攻击者的手机号;</li>
+<li>短信轰炸工具的后台服务器，将该手机号与互联网收集的可不需要经过认证即可发送动态短信的 URL 进行组合，形成可发送动态短信的 URL 请求;</li>
+<li>通过后台请求页面，伪造用户的请求发给不同的业务服务器;</li>
+<li>业务服务器收到该请求后，发送动态短信到被攻击用户的手机上。</li>
+</ol>
+<p>&emsp;&emsp;流程示例：<br><img src="/ArticleImg/PHP/短信验证码轰炸流程.png" alt="短信验证码轰炸流程"></p>
+<h2 id="二、短信轰炸的防护方案"><a href="#二、短信轰炸的防护方案" class="headerlink" title="二、短信轰炸的防护方案"></a>二、短信轰炸的防护方案</h2><p>&emsp;&emsp;鉴于短信轰炸的发起一般都是服务器行为，应该采用如下综合手段进行防御：</p>
+<ol>
+<li>增加图形验证</li>
+<li>单IP请求次数限制</li>
+<li>限制号码发送</li>
+</ol>
+<h3 id="（一）增加图形验证"><a href="#（一）增加图形验证" class="headerlink" title="（一）增加图形验证"></a>（一）增加图形验证</h3><p>&emsp;&emsp;恶意攻击者采用自动化工具，调用“动态短信获取”接口进行动态短信发送，原因主要是攻击者可以自动对接口进行大量调用。<br>&emsp;&emsp;采用图片验证码可有效防止工具自动化调用，即当用户进行“获取动态短信” 操作前，弹出图片验证码，要求用户输入验证码后，服务器端再发送动态短信到用户手机上，该方法可有效解决短信轰炸问题。</p>
+<p>&emsp;&emsp;<em>安全的图形验证码</em>必须满足如下防护要求</p>
+<ul>
+<li>生成过程安全:图片验证码必须在服务器端进行产生与校验;</li>
+<li>使用过程安全:单次有效，且以用户的验证请求为准;</li>
+<li>验证码自身安全:不易被识别工具识别，能有效防止暴力破解。</li>
+</ul>
+<p><img src="/ArticleImg/PHP/图形验证的示例.png" alt="图形验证的示例"></p>
+<h2 id="（二）单IP请求次数限制"><a href="#（二）单IP请求次数限制" class="headerlink" title="（二）单IP请求次数限制"></a>（二）单IP请求次数限制</h2><p>&emsp;&emsp;使用了图片验证码后，能防止攻击者有效进行“动态短信”功能的自动化调用;但若攻击者忽略图片验证码验证错误的情况，大量执行请求会给服务器带来额外负担，影响业务使用。建议在服务器端限制单个 IP 在单位时间内的请求次数，一旦用户请求次数(包括失败请求次数)超出设定的阈值，则暂停对该 IP 一段时间的请求;若情节特别严重，可以将 IP 加入黑名单，禁止该 IP 的访问请 求。该措施能限制一个 IP 地址的大量请求，避免攻击者通过同一个 IP 对大量用户进行攻击，增加了攻击难度，保障了业务的正常开展。</p>
+<h2 id="（三）限制发送时长"><a href="#（三）限制发送时长" class="headerlink" title="（三）限制发送时长"></a>（三）限制发送时长</h2><p>&emsp;&emsp;建议<em>采用限制重复发送动态短信的间隔时长</em>，即当单个用户请求发送一次动态短信之后，服务器端限制只有在一定时长之后（此处一般为60秒），才能进行第二次动态短信请求。该功能可进一步保障用户体验，并避免包含手工攻击恶意发送垃圾验证短信。</p>
+<p><img src="/ArticleImg/PHP/动态短信验证码流程.png" alt="动态短信验证码使用流程"></p>
+<blockquote>
+<p><em>推荐链接：</em><br><a href="https://luosimao.com/service/captcha" target="_blank" rel="noopener">人机验证：luosimao目前提供的免费图形验证码方案</a><br><a href="http://www.woshipm.com/pd/580976.html" target="_blank" rel="noopener">产品防护：5种常见的短信验证码防刷策略</a></p>
+</blockquote>
+<blockquote>
+<p>原文链接：<a href="https://zhuanlan.zhihu.com/p/20879468" target="_blank" rel="noopener">如何防范短信接口被恶意调用（被刷）</a></p>
+</blockquote>
+
+  </div>
+  <div class="post-tags">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/短信验证码/">短信验证码</a></li></ul>
+  </div>
+</article>
+  
+    <div class="post-nav">
+      <div class="post-nav-item post-nav-next">
+        
+          <span>〈 </span>
+          <a href="/2018/07/19/18.7.19租房记事/" rel="next" title="北京租房记事">
+          北京租房记事
+          </a>
+        
+      </div>
+  
+      <div class="post-nav-item post-nav-prev">
+        
+      </div>
+    </div>
+  
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是短信轰炸（短信接口被刷）"><span class="toc-text">一、什么是短信轰炸（短信接口被刷）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、短信轰炸的防护方案"><span class="toc-text">二、短信轰炸的防护方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）增加图形验证"><span class="toc-text">（一）增加图形验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）单IP请求次数限制"><span class="toc-text">（二）单IP请求次数限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）限制发送时长"><span class="toc-text">（三）限制发送时长</span></a></li></ol>
+  </div>
+
+
+
+    </div>
+
+    
+
+  </div>
+
+  <footer class="footer text-center">
+    <div id="bottom-inner">
+      <a href="http://blog.meiqiu.me" target="_blank">Sweetheartly</a> |
+      <a href="http://meiqiu.me" target="_blank">主站</a> |
+      <a href="https://xiao.meiqiu.me" target="_blank">小煤球</a> |
+      <a href="https://github.com/microacup" target="_blank">GitHub</a> |
+      <a href="http://hexo.io" target="_blank">Hexo</a> |
+      <a href="https://github.com/microacup/hexo-theme-micorb" target="_blank">Theme microb</a>
+    </div>
+  </footer>
+  
+
+<script>
+  (function(window, document, undefined) {
+
+    var timer = null;
+
+    function returnTop() {
+      cancelAnimationFrame(timer);
+      timer = requestAnimationFrame(function fn() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (oTop > 0) {
+          document.body.scrollTop = document.documentElement.scrollTop = oTop - 50;
+          timer = requestAnimationFrame(fn);
+        } else {
+          cancelAnimationFrame(timer);
+        }
+      });
+    }
+
+    var hearts = [];
+    window.requestAnimationFrame = (function() {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          setTimeout(callback, 1000 / 60);
+        }
+    })();
+    init();
+
+    function init() {
+      css(".heart{z-index:9999;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+      attachEvent();
+      gameloop();
+      addMenuEvent();
+    }
+
+    function gameloop() {
+      for (var i = 0; i < hearts.length; i++) {
+        if (hearts[i].alpha <= 0) {
+          document.body.removeChild(hearts[i].el);
+          hearts.splice(i, 1);
+          continue;
+        }
+        hearts[i].y--;
+        hearts[i].scale += 0.004;
+        hearts[i].alpha -= 0.013;
+        hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+      }
+      requestAnimationFrame(gameloop);
+    }
+
+    /**
+     * 给logo设置点击事件
+     * 
+     * - 回到顶部
+     * - 出现爱心
+     */
+    function attachEvent() {
+      var old = typeof window.onclick === "function" && window.onclick;
+      var logo = document.getElementById("logo");
+      if (logo) {
+        logo.onclick = function(event) {
+          returnTop();
+          old && old();
+          createHeart(event);
+        }
+      }
+      
+    }
+
+    function createHeart(event) {
+      var d = document.createElement("div");
+      d.className = "heart";
+      hearts.push({
+        el: d,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: randomColor()
+      });
+      document.body.appendChild(d);
+    }
+
+    function css(css) {
+      var style = document.createElement("style");
+      style.type = "text/css";
+      try {
+        style.appendChild(document.createTextNode(css));
+      } catch (ex) {
+        style.styleSheet.cssText = css;
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+
+    function randomColor() {
+      // return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+      return "#F44336";
+    }
+
+    function addMenuEvent() {
+      var menu = document.getElementById('menu-main-post');
+      if (menu) {
+        var toc = document.getElementById('toc');
+        if (toc) {
+          menu.onclick = function() {
+            if (toc) {
+              if (toc.style.display == 'block') {
+                toc.style.display = 'none';
+              } else {
+                toc.style.display = 'block';
+              }
+            }
+          };
+        } else {
+          menu.style.display = 'none';
+        }
+      }
+    }
+
+  })(window, document);
+</script>
+
+  
+
+
+
+</body>
+</html>
