@@ -94,8 +94,8 @@
 <li>验证码自身安全:不易被识别工具识别，能有效防止暴力破解。</li>
 </ul>
 <p><img src="/ArticleImg/PHP/图形验证的示例.png" alt="图形验证的示例"></p>
-<h2 id="（二）单IP请求次数限制"><a href="#（二）单IP请求次数限制" class="headerlink" title="（二）单IP请求次数限制"></a>（二）单IP请求次数限制</h2><p>&emsp;&emsp;使用了图片验证码后，能防止攻击者有效进行“动态短信”功能的自动化调用;但若攻击者忽略图片验证码验证错误的情况，大量执行请求会给服务器带来额外负担，影响业务使用。建议在服务器端限制单个 IP 在单位时间内的请求次数，一旦用户请求次数(包括失败请求次数)超出设定的阈值，则暂停对该 IP 一段时间的请求;若情节特别严重，可以将 IP 加入黑名单，禁止该 IP 的访问请 求。该措施能限制一个 IP 地址的大量请求，避免攻击者通过同一个 IP 对大量用户进行攻击，增加了攻击难度，保障了业务的正常开展。</p>
-<h2 id="（三）限制发送时长"><a href="#（三）限制发送时长" class="headerlink" title="（三）限制发送时长"></a>（三）限制发送时长</h2><p>&emsp;&emsp;建议<em>采用限制重复发送动态短信的间隔时长</em>，即当单个用户请求发送一次动态短信之后，服务器端限制只有在一定时长之后（此处一般为60秒），才能进行第二次动态短信请求。该功能可进一步保障用户体验，并避免包含手工攻击恶意发送垃圾验证短信。</p>
+<h3 id="（二）单IP请求次数限制"><a href="#（二）单IP请求次数限制" class="headerlink" title="（二）单IP请求次数限制"></a>（二）单IP请求次数限制</h3><p>&emsp;&emsp;使用了图片验证码后，能防止攻击者有效进行“动态短信”功能的自动化调用;但若攻击者忽略图片验证码验证错误的情况，大量执行请求会给服务器带来额外负担，影响业务使用。建议在服务器端限制单个 IP 在单位时间内的请求次数，一旦用户请求次数(包括失败请求次数)超出设定的阈值，则暂停对该 IP 一段时间的请求;若情节特别严重，可以将 IP 加入黑名单，禁止该 IP 的访问请 求。该措施能限制一个 IP 地址的大量请求，避免攻击者通过同一个 IP 对大量用户进行攻击，增加了攻击难度，保障了业务的正常开展。</p>
+<h3 id="（三）限制发送时长"><a href="#（三）限制发送时长" class="headerlink" title="（三）限制发送时长"></a>（三）限制发送时长</h3><p>&emsp;&emsp;建议<em>采用限制重复发送动态短信的间隔时长</em>，即当单个用户请求发送一次动态短信之后，服务器端限制只有在一定时长之后（此处一般为60秒），才能进行第二次动态短信请求。该功能可进一步保障用户体验，并避免包含手工攻击恶意发送垃圾验证短信。</p>
 <p><img src="/ArticleImg/PHP/动态短信验证码流程.png" alt="动态短信验证码使用流程"></p>
 <blockquote>
 <p><em>推荐链接：</em><br><a href="https://luosimao.com/service/captcha" target="_blank" rel="noopener">人机验证：luosimao目前提供的免费图形验证码方案</a><br><a href="http://www.woshipm.com/pd/580976.html" target="_blank" rel="noopener">产品防护：5种常见的短信验证码防刷策略</a></p>
@@ -122,6 +122,11 @@
   
       <div class="post-nav-item post-nav-prev">
         
+          <a href="/2018/07/23/只有高质量的日更，才能成就文学梦/" rel="prev" title="只有高质量的日更，才能成就文学梦">
+            只有高质量的日更，才能成就文学梦
+          </a>
+          <span>〉</span>
+        
       </div>
     </div>
   
@@ -129,7 +134,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是短信轰炸（短信接口被刷）"><span class="toc-text">一、什么是短信轰炸（短信接口被刷）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、短信轰炸的防护方案"><span class="toc-text">二、短信轰炸的防护方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）增加图形验证"><span class="toc-text">（一）增加图形验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）单IP请求次数限制"><span class="toc-text">（二）单IP请求次数限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）限制发送时长"><span class="toc-text">（三）限制发送时长</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是短信轰炸（短信接口被刷）"><span class="toc-text">一、什么是短信轰炸（短信接口被刷）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、短信轰炸的防护方案"><span class="toc-text">二、短信轰炸的防护方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）增加图形验证"><span class="toc-text">（一）增加图形验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）单IP请求次数限制"><span class="toc-text">（二）单IP请求次数限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）限制发送时长"><span class="toc-text">（三）限制发送时长</span></a></li></ol></li></ol>
   </div>
 
 
